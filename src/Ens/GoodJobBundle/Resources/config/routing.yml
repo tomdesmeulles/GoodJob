@@ -1,0 +1,3 @@
+ens_good_job_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: EnsGoodJobBundle:Default:index }

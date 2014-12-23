@@ -1,0 +1,4 @@
+services:
+#    ens_good_job.example:
+#        class: Ens\GoodJobBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
