@@ -1,3 +1,15 @@
-ens_good_job_homepage:
+# ens_good_job_ens_job:
+#     resource: "@EnsGoodJobBundle/Resources/config/routing/job.yml"
+#     prefix:   /ens_job
+
+# ens_good_job_homepage:
+#     path:     /hello/{name}
+#     defaults: { _controller: EnsGoodJobBundle:Default:index }
+
+EnsGoodJobBundle_job:
+    resource: "@EnsGoodJobBundle/Resources/config/routing/job.yml"
+    prefix:   /job
+
+EnsGoodJobBundle_homepage:
     path:     /hello/{name}
     defaults: { _controller: EnsGoodJobBundle:Default:index }
