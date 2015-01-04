@@ -11,5 +11,5 @@ EnsGoodJobBundle_job:
     prefix:   /job
 
 EnsGoodJobBundle_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: EnsGoodJobBundle:Default:index }
+    path:     /
+    defaults: { _controller: EnsGoodJobBundle:Job:index }

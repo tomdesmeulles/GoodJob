@@ -4,6 +4,8 @@ namespace Ens\GoodJobBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Ens\GoodJobBundle\Utils\GoodJob as GoodJob;
+
 /**
  * Job
  */
@@ -472,6 +474,29 @@ class Job
     {
         return $this->category;
     }
+    
+
+
+    public function getCompanySlug()
+    {
+        return GoodJob::slugify($this->getCompany());
+    }
+    
+    public function getPositionSlug()
+    {
+        return GoodJob::slugify($this->getPosition());
+    }
+    
+    public function getLocationSlug()
+    {
+        return GoodJob::slugify($this->getLocation());
+    }
+
+
+
+
+
+
     /**
      * @ORM\PrePersist
      */
@@ -490,4 +515,9 @@ class Job
     {
         $this->updated_at = new \DateTime();
     }
+
+
+
+
+
 }
