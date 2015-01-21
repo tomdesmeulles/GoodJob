@@ -19,16 +19,37 @@ class JobController extends Controller
      * Lists all Job entities.
      *
      */
+    // public function indexAction()
+    // {
+    //     $em = $this->getDoctrine()->getManager();
+
+    //     $entities = $em->getRepository('EnsGoodJobBundle:Job')->findAll();
+
+    //     return $this->render('EnsGoodJobBundle:Job:index.html.twig', array(
+    //         'entities' => $entities,
+    //     ));
+    // }
+
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('EnsGoodJobBundle:Job')->findAll();
+        
+        $categories = $em->getRepository('EnsGoodJobBundle:Category')->getWithJobs();
+        
+        foreach($categories as $category)
+        {
+            $category->setActiveJobs($em->getRepository('EnsGoodJobBundle:Job')->getActiveJobs($category->getId(), $this->container->getParameter('max_jobs_on_homepage')));
+            $category->setMoreJobs($em->getRepository('EnsGoodJobBundle:Job')->countActiveJobs($category->getId()), $this->container->getParameter('max_jobs_on_homepage'));
+        }
 
         return $this->render('EnsGoodJobBundle:Job:index.html.twig', array(
-            'entities' => $entities,
+            'categories' => $categories
         ));
     }
+
+
+
+
     /**
      * Creates a new Job entity.
      *

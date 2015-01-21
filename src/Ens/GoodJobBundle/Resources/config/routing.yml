@@ -13,3 +13,7 @@ EnsGoodJobBundle_job:
 EnsGoodJobBundle_homepage:
     path:     /
     defaults: { _controller: EnsGoodJobBundle:Job:index }
+
+EnsGoodJobBundle_category:
+    pattern: /category/{slug}/{page}
+    defaults: { _controller: EnsGoodJobBundle:Category:show, page:1 }

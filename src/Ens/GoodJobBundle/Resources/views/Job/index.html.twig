@@ -7,18 +7,44 @@
 
 {% block content %}
     <div id="jobs">
-        <table class="jobs">
-        {% for entity in entities %}
-        <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
-            <td class="location">{{ entity.location }}</td>
-            <td class="position">
-                <a href="{{ path('ens_job_show', { 'id': entity.id, 'company': entity.companySlug, 'location': entity.locationSlug, 'position': entity.positionSlug }) }}">
-                {{ entity.position }}
-                </a>
-            </td>
-            <td class="company">{{ entity.company }}</td>
-        </tr>
+        {% for category in categories %}
+         <div>
+            <div class="category">
+                <div class="feed">
+                    <a href="">Feed</a>
+                </div>
+                <h1>{{ category.name }}</h1>
+            </div>
+
+            <!-- <h1>{{dump(category)}} TEST</h1> -->
+
+          <!--  <h1><a href="{{ path('EnsGoodJobBundle_category', { 'slug': category.slug }) }}">{{ category.name }}</a></h1> -->
+ 
+
+            {% include 'EnsGoodJobBundle:Job:list.html.twig' with {'jobs': category.activejobs} %}
+           <!--  <table class="jobs">
+                {% for entity in category.activejobs %}
+                    <tr class="{{ cycle  (['even', 'odd'], loop.index) }}">
+                        <td class="location">{{ entity.location }}</td>
+                        <td class="position">
+                            <a href="{{ path('ens_job_show', { 'id': entity.id, 'company': entity.companySlug, 'location': entity.locationSlug, 'position': entity.positionSlug }) }}">
+                                {{ entity.position }}
+                            </a>
+                        </td>
+                        <td class="company">{{ entity.company }}</td>
+                    </tr>
+                {% endfor %}
+            </table> -->
+
+             {% if category.morejobs %}
+                <div class="more_jobs">
+                    et  
+                    <a href="{{ path('EnsGoodJobBundle_category', { 'slug': category.slug }) }}">{{ category.morejobs }}</a>
+                    en plus...
+                </div>
+            {% endif %}
+
+        </div>
         {% endfor %}
-        </table>
     </div>
 {% endblock %}

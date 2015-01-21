@@ -1,6 +1,9 @@
 imports:
     - { resource: config.yml }
 
+#Parametres pour gérer le nombre de résultats affichés.
+
+
 framework:
     router:
         resource: "%kernel.root_dir%/config/routing_dev.yml"

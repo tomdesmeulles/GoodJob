@@ -3,6 +3,10 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
 
+parameters:
+    max_jobs_on_homepage: "10"
+    max_jobs_on_category: "20"
+
 framework:
     #esi:             ~
     #translator:      { fallback: "%locale%" }
@@ -71,3 +75,4 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+

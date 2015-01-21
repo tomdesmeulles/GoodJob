@@ -1,5 +1,6 @@
 Ens\GoodJobBundle\Entity\Job:
   type: entity
+  repositoryClass: Ens\GoodJobBundle\Repository\JobRepository
   table: job
   id:
     id:
@@ -59,5 +60,5 @@ Ens\GoodJobBundle\Entity\Job:
         name: category_id
         referencedColumnName: id
   lifecycleCallbacks:
-    prePersist: [ setCreatedAtValue ]
+    prePersist: [ setCreatedAtValue, setExpiresAtValue ]
     preUpdate: [ setUpdatedAtValue ]

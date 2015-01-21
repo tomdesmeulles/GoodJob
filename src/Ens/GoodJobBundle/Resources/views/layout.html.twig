@@ -16,23 +16,58 @@
         </head>
         <body>
             <div id="container">
-
+                <div id="top-header">
+                    <ul>
+                        <li class="li-menuHeader">
+                                <a href="{{ path('EnsGoodJobBundle_homepage') }}">
+                                    <img src="{{ asset('bundles/ensgoodjob/images/logo.jpg') }}" alt="Good Job - Le partenaire des geeks" width="150px" />
+                                </a>
+                        </li>
+<!--                         <li class="toto">
+                            <p>
+                                "Le partenaire des geeks"
+                            </p>
+                        </li> -->
+                        <li class="li-menuHeader ">
+                            <a href="{{ path('ens_job') }}" class="menu-header">
+                                <p>
+                                    Déposer une offre
+                                </p>
+                            </a>
+                        </li>
+                        <li class="li-menuHeader ">
+                            <a href="{{ path('EnsGoodJobBundle_homepage') }}" class="menu-header">
+                                <p>
+                                     Rechercher une offre
+                                </p>
+                            </a>
+                        </li>
+                       <!--  <li class="li-menuHeader">
+                            <h2 class="menu-header">
+                                <a href="{{ path('EnsGoodJobBundle_homepage') }}" >
+                                    Rechercher une offre
+                                </a>
+                            </h2>
+                        </li> -->
+                    <ul>
+                </div>
+                <div id="side-bar">
+                   
+                </div>
                 <div id="header">
                     <div class="content">
-                    <h1>
-                        <a href="{{ path('EnsGoodJobBundle_homepage') }}">
-                            <img src="{{ asset('bundles/ensgoodjob/images/logo.jpg') }}" alt="Good Job - Le partenaire des geeks" />
-                        </a>
-                    </h1>
+
                     <div id="sub_header">
-                        <div class="post">
+                        <!-- DEPOSER UNE OFFRE -->
+
+<!--                         <div class="post">
                             <h2>Rechercher un candidat</h2>
                             <div>
                                 <a href="{{ path('ens_job') }}">Déposer une offre</a>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="search">
-                            <h2>Rechercher un emploi</h2>
+                            <h2>Rechercher une offre</h2>
                             <form action="" method="get">
                                 <input type="text" name="keywords" id="search_keywords" />
                                 <input type="submit" value="search" />
@@ -44,6 +79,7 @@
                         </div>
                     </div>
                 </div>
+
 
                 <div id="content">
                     {% for flashMessage in app.session.flashbag.get('notice') %}
@@ -65,13 +101,12 @@
                     </div>
                 </div>
 
+
                 <div id="footer">
                     <div class="content">
                         <span class="symfony">
-                            <img src="{{ asset('bundles/ensgoodjob/images/jobeet-mini.png') }}" />
-                            powered by 
                             <a href="http://www.symfony.com/">
-                                <img src="{{ asset('bundles/ensgoodjob/images/symfony.gif') }}" alt="symfony framework" />
+                                
                             </a>
                         </span>
                         <ul>
