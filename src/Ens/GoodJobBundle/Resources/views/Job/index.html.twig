@@ -38,9 +38,8 @@
 
              {% if category.morejobs %}
                 <div class="more_jobs">
-                    et  
                     <a href="{{ path('EnsGoodJobBundle_category', { 'slug': category.slug }) }}">{{ category.morejobs }}</a>
-                    en plus...
+                    Offres au total dans cette catégorie
                 </div>
             {% endif %}
 
