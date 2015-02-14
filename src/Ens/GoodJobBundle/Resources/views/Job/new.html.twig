@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="{{ asset('bundles/ensgoodjob/css/job.css') }}" type="text/css" media="all" />
 {% endblock %}
 {% block content %}
-<h1>Job creation</h1>
+<h1>Création d'une Offre</h1>
 <form action="{{ path('ens_job_create') }}" method="post" {{ form_enctype(form) }}>
 	<table id="job_form">
 		<tfoot>
@@ -97,7 +97,7 @@
 				<td>
 					{{ form_errors(form.is_public) }}
 					{{ form_widget(form.is_public) }}
-					<br /> Whether the job can also be published on affiliate websites or not.
+					<br /> Si l'offre peut également être publiée sur les sites partenaires ou non 
 				</td>
 			</tr>
 			<tr>

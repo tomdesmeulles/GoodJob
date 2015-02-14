@@ -7,12 +7,19 @@
                 {% endblock %}
             </title>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <link rel="shortcut icon" href="{{ asset('bundles/ensgoodjob/images/favicon.ico') }}" />
             {% block stylesheets %}
                 <link rel="stylesheet" href="{{ asset('bundles/ensgoodjob/css/main.css') }}" type="text/css" media="all" />
             {% endblock %}
             {% block javascripts %}
+                <script langage="text/javascript">
+                    function clearf(){
+                        document.getElementById('srchval').value="";
+                    }
+                </script>
+                <script type="text/javascript" src="{{ asset('bundles/ensgoodjob/js/jquery-1.4.2.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('bundles/ensgoodjob/js/coin-slider.min.js') }}"></script>
             {% endblock %}
-            <link rel="shortcut icon" href="{{ asset('bundles/ensgoodjob/images/favicon.ico') }}" />
         </head>
         <body>
             <div id="container">
@@ -20,14 +27,9 @@
                     <ul>
                         <li class="li-menuHeader">
                                 <a href="{{ path('EnsGoodJobBundle_homepage') }}">
-                                    <img src="{{ asset('bundles/ensgoodjob/images/logo.jpg') }}" alt="Good Job - Le partenaire des geeks" width="150px" />
+                                    <img src="{{ asset('bundles/ensgoodjob/images/logo.jpg') }}" alt="Good Job - Le partenaire des geeks"  />
                                 </a>
                         </li>
-<!--                         <li class="toto">
-                            <p>
-                                "Le partenaire des geeks"
-                            </p>
-                        </li> -->
                         <li class="li-menuHeader ">
                             <a href="{{ path('ens_job_new') }}" class="menu-header">
                                 <p>
@@ -42,39 +44,43 @@
                                 </p>
                             </a>
                         </li>
-                       <!--  <li class="li-menuHeader">
-                            <h2 class="menu-header">
-                                <a href="{{ path('EnsGoodJobBundle_homepage') }}" >
-                                    Rechercher une offre
-                                </a>
-                            </h2>
-                        </li> -->
+                        <li class="li-menuHeader ">
+                            <a href="{{ path('EnsGoodJobBundle_homepage') }}" class="menu-header">
+                                <p>
+                                     Rechercher un candidat
+                                </p>
+                            </a>
+                        </li>
                     <ul>
                 </div>
-                <div id="side-bar">
-                   
-                </div>
+
+
                 <div id="header">
                     <div class="content">
 
-                    <div id="sub_header">
-                        <!-- DEPOSER UNE OFFRE -->
-
-<!--                         <div class="post">
-                            <h2>Rechercher un candidat</h2>
-                            <div>
-                                <a href="{{ path('ens_job') }}">Déposer une offre</a>
+                        <div class="contentSlide">
+                            <div id='coin-slider'>
+                                <a href="{{ path('EnsGoodJobBundle_homepage') }}" target="_blank">
+                                    <img src='{{ asset('bundles/ensgoodjob/images/job.jpg') }}' >
+                                    <span>
+                                        Description for img01
+                                    </span>
+                                </a>
+                                <a href="{{ path('EnsGoodJobBundle_homepage') }}">
+                                    <img src='{{ asset('bundles/ensgoodjob/images/job2.jpg') }}' >
+                                    <span>
+                                        Description for imgN
+                                    </span>
+                                </a>
                             </div>
-                        </div> -->
-                        <div class="search">
-                            <h2>Rechercher une offre</h2>
-                            <form action="" method="get">
-                                <input type="text" name="keywords" id="search_keywords" />
-                                <input type="submit" value="search" />
-                                <div class="help">
-                                  Ecrivez quelques mots clés (ville, pays, poste, ...)
-                                </div>
-                            </form>
+                        </div>
+                        <div id="sub_header">
+
+                            <div class="search">
+                                <form action="" method="get">
+                                    <input type="text" name="keywords" id="search_keywords" id="srchval" onclick="clearf()" value=" Ecrivez quelques mots clés (ville, pays, poste, ...)"/>
+                                    <input type="submit" value="rechercher" classe="submitR" />
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -99,21 +105,22 @@
                         {% block content %}
                         {% endblock %}
                     </div>
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('#coin-slider').coinslider({ width:783, navigation: false, delay: 5000 });
+                        });
+                    </script>
                 </div>
 
 
                 <div id="footer">
                     <div class="content">
-                        <span class="symfony">
-                            <a href="http://www.symfony.com/">
-                                
-                            </a>
-                        </span>
+
                         <ul>
-                            <li><a href="">A propos de Good Job</a></li>
-                            <li class="feed"><a href="">Flux complet</a></li>
-                            <li><a href="">Good Job API</a></li>
-                            <li class="last"><a href="">S'abonner</a></li>
+                            <li><a href="">Mention legales </a></li>
+                            <li class=""><a href="">Mention legales</a></li>
+                            <li><a href="">Mention legales</a></li>
+                            <li class=""><a href="">Mention legales</a></li>
                         </ul>
                     </div>
                 </div>
