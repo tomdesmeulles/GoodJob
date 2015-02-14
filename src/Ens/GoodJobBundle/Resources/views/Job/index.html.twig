@@ -10,15 +10,9 @@
         {% for category in categories %}
          <div>
             <div class="category">
-                <div class="feed">
-                    <a href="">Feed</a>
-                </div>
+
                 <h1>{{ category.name }}</h1>
             </div>
-
-            <!-- <h1>{{dump(category)}} TEST</h1> -->
-
-          <!--  <h1><a href="{{ path('EnsGoodJobBundle_category', { 'slug': category.slug }) }}">{{ category.name }}</a></h1> -->
  
 
             {% include 'EnsGoodJobBundle:Job:list.html.twig' with {'jobs': category.activejobs} %}
@@ -38,8 +32,9 @@
 
              {% if category.morejobs %}
                 <div class="more_jobs">
+                    Total de 
                     <a href="{{ path('EnsGoodJobBundle_category', { 'slug': category.slug }) }}">{{ category.morejobs }}</a>
-                    Offres au total dans cette catégorie
+                    offres
                 </div>
             {% endif %}
 
