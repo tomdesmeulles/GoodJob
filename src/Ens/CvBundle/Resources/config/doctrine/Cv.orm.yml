@@ -1,0 +1,73 @@
+Ens\CvBundle\Entity\Cv:
+  type: entity
+  table: cv
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+#Infos candidat
+    photoCv:
+      type: string
+      length: 255
+      nullable: true
+    prenom:
+      type: string
+      length: 255
+      nullable: true
+    nom:
+      type: string
+      length: 255
+      nullable: true
+    age:
+      type: date
+      length: 8
+    email:
+      type: string
+      length: 255
+    adresse:
+      type: string
+      length: 255
+    urlFolio:
+      type: string
+      length: 255
+      nullable: true
+#Experience pro
+    exp_name:
+      type: string
+      length: 255
+    entreprise:
+      type: string
+      length: 255
+    date_deb:
+      type: date
+      length: 8
+    date_fin:
+      type: date
+      length: 8
+    description:
+      type: text
+      length: 255
+#FORMATIONS
+    form_name:
+      type: string
+      length: 255
+    univ:
+      type: string
+      length: 255
+    date_debForm:
+      type: date
+      length: 255
+    date_finForm:
+      type: date
+      length: 255
+  manyToOne:
+    CategoryCv:
+      targetEntity: CategoryCv
+      inversedBy: cvs
+      joinColumn:
+        name: categoryCv_id
+        referencedColumnName: id
+  lifecycleCallbacks:
+    prePersist: [ setCreatedAtValue ]
+    preUpdate: [ setUpdatedAtValue ]

@@ -2,3 +2,16 @@ services:
 #    ens_good_job.example:
 #        class: Ens\GoodJobBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+services:
+    ens.goodjob.admin.category:
+        class: Ens\GoodJobBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: goodjob, label: Categories }
+        arguments: [null, Ens\GoodJobBundle\Entity\Category, EnsGoodJobBundle:CategoryAdmin]
+
+    ens.goodjob.admin.job:
+        class: Ens\GoodJobBundle\Admin\JobAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: goodjob, label: Jobs }
+        arguments: [null, Ens\GoodJobBundle\Entity\Job, EnsGoodJobBundle:JobAdmin]

@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Ens\GoodJobBundle\Entity\Job;
 use Ens\GoodJobBundle\Form\JobType;
+use Ens\GoodJobBundle\GMap\GeocodeMap;
 
 /**
  * Job controller.
@@ -28,9 +29,19 @@ class JobController extends Controller
             $category->setActiveJobs($em->getRepository('EnsGoodJobBundle:Job')->getActiveJobs($category->getId(), $this->container->getParameter('max_jobs_on_homepage')));
             $category->setMoreJobs($em->getRepository('EnsGoodJobBundle:Job')->countActiveJobs($category->getId()), $this->container->getParameter('max_jobs_on_homepage'));
         }
+        $map = $this->get('ivory_google_map.map');
 
         return $this->render('EnsGoodJobBundle:Job:index.html.twig', array(
-            'categories' => $categories
+            'categories' => $categories,
+            'map' => $map
+        ));
+    }
+
+    public function mapAction(){
+         $map = $this->get('ivory_google_map.map');
+
+        return $this->render('EnsGoodJobBundle:Job:test.html.twig', array(
+            'map' => $map
         ));
     }
 
@@ -153,21 +164,85 @@ class JobController extends Controller
             $em = $this->getDoctrine()->getEntityManager();
             $entity = $em->getRepository('EnsGoodJobBundle:Job')->findOneByToken($token);
             if (!$entity) {
-                throw $this->createNotFoundException("Impossible de trouver l'entité emploi.");
+                throw $this->createNotFoundException("Impossible de trouver l'entité Job.");
             }
+            $adress = $entity->getLocation();
+            $GeocodeMap = $this->geocode($adress);            
+            var_dump($GeocodeMap);
+
+
+            $entity->setLongitude($GeocodeMap['longitude']);
+            $entity->setLatitude($GeocodeMap['latitude']);
+
             $entity->publish();
+
+            /// avant le publish apliquer une methode dans l'entity creatgeolocation 
+            // 
+
+            echo ("TESTE DE MERDE");    
             $em->persist($entity);
             $em->flush();
-            // $this->get('session')->getFlashBag('notice', 'Votre offre est active pour les 30 prochains jours.');
             $request->getSession()->getFlashBag()->add('notice', 'Votre offre est active pour les 30 prochains jours.');
-            
         }
+
         return $this->redirect($this->generateUrl('ens_job_preview', array(
             'company' => $entity->getCompanySlug(),
             'location' => $entity->getLocationSlug(),
             'token' => $entity->getToken(),
             'position' => $entity->getPositionSlug()
             )));
+    }
+
+
+
+    public function geocode($address){
+ 
+        // url encode the address
+        $address = urlencode($address);
+         
+        // google map geocode api url
+        $url = "http://maps.google.com/maps/api/geocode/json?sensor=false&address={$address}";
+        
+        // get the json response
+        $resp_json = file_get_contents($url);
+         
+        // decode the json
+        $resp = json_decode($resp_json, true);
+     
+        // response status will be 'OK', if able to geocode given address 
+        if($resp['status']='OK'){
+     
+            // get the important data
+            $lati = $resp['results'][0]['geometry']['location']['lat'];
+            $longi = $resp['results'][0]['geometry']['location']['lng'];
+            $formatted_address = $resp['results'][0]['formatted_address'];
+             
+            // verify if data is complete
+            if($lati && $longi && $formatted_address){
+             
+                // put the data in the array
+                $data_arr = array();            
+                 
+                // array_push(
+                //     $data_arr, 
+                //         $lati, 
+                //         $longi, 
+                //         $formatted_address
+                //     );
+                $data_arr['latitude']=$lati;
+                $data_arr['longitude']=$longi;
+                $data_arr['formatted_address']=$formatted_address;
+
+
+                return $data_arr;
+                 
+            }else{
+                return false;
+            }
+             
+        }else{
+            return false;
+        }
     }
 
     
@@ -220,6 +295,18 @@ class JobController extends Controller
         $request = $this->getRequest();
         $editForm->bindRequest($request);
         if ($editForm->isValid()) {
+
+
+            // dans l'objet entity récup lat et lng 
+            // activer la gestion des deux param. 
+
+            // getlocation 
+
+            //getGeocoderlocation qui retourn lat lng 
+            // persiste l'entité
+
+
+
         $em->persist($entity);
         $em->flush();
          return $this->redirect($this->generateUrl('ens_job_preview', array(

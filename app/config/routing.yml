@@ -1,3 +1,7 @@
+ens_cv:
+    resource: "@EnsCvBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ens_good_job:
     resource: "@EnsGoodJobBundle/Resources/config/routing.yml"
     prefix:   /
@@ -5,3 +9,12 @@ ens_good_job:
 app:
     resource: @AppBundle/Controller/
     type:     annotation
+
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin

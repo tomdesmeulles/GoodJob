@@ -1,0 +1,19 @@
+Ens\CvBundle\Entity\CategoryCv:
+  type: entity
+  table: categoryCv
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+      unique: true
+  oneToMany:
+    cvs:
+      targetEntity: Cv
+      mappedBy: categoryCv
+  category_affiliates:
+      targetEntity: CategoryCvAffiliate
+      mappedBy: categoryCv

@@ -28,6 +28,12 @@ Ens\GoodJobBundle\Entity\Job:
     location:
       type: string
       length: 255
+    latitude:
+      type: float
+      nullable: true
+    longitude:
+      type: float
+      nullable: true
     description:
       type: text
     how_to_apply:

@@ -11,17 +11,17 @@ class JobType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('category');
+        $builder->add('category', null, array('label' => "secteur d'activité", 'required' => true));
         $builder->add('type', 'choice', array('choices' => Job::getTypes(), 'expanded' => true));
-        $builder->add('company');
-        $builder->add('file', 'file', array('label' => 'Company logo', 'required' => false));
-        $builder->add('url');
-        $builder->add('position');
-        $builder->add('location');
-        $builder->add('description');
-        $builder->add('how_to_apply', null, array('label' => 'How to apply?'));
-        $builder->add('is_public', null, array('label' => 'Public?'));
-        $builder->add('email');
+        $builder->add('company', null, array('label' => 'Entreprise', 'required' => true));
+        $builder->add('file', 'file', array('label' => 'Logo', 'required' => false));
+        $builder->add('url', null, array('label' => 'Site Web', 'required' => false));
+        $builder->add('position', null, array('label' => 'Poste', 'required' => true));
+        $builder->add('location', null, array('label' => 'Ville', 'required' => true));
+        $builder->add('description', null, array('label' => "Description de l'offre", 'required' => true));
+        $builder->add('how_to_apply', null, array('label' => 'Contact RH'));
+        $builder->add('is_public', null, array('label' => 'Offre public ?'));
+        $builder->add('email', null,  array('label' => 'Mail et/ou Tel', 'required' => false));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
@@ -37,36 +37,3 @@ class JobType extends AbstractType
     }
 }
 
-
-// namespace Ens\GoodJobBundle\Form;
-
-
-// use Symfony\Component\Form\AbstractType;
-
-// use Symfony\Component\Form\FormBuilder;
-// use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-// use Ens\GoodJobBundle\Entity\Job;
-
-// class JobType extends AbstractType
-// {
-    
-//     public function buildForm(FormBuilder $builder, array $options)
-//     {
-//         $builder->add('category');
-//         $builder->add('type', 'choice', array('choices' => Job::getTypes(), 'expanded' => true));
-//         $builder->add('company');
-//         $builder->add('file', 'file', array('label' => 'Company logo', 'required' => false));
-//         $builder->add('url');
-//         $builder->add('position');
-//         $builder->add('location');
-//         $builder->add('description');
-//         $builder->add('how_to_apply', null, array('label' => 'How to apply?'));
-//         $builder->add('is_public', null, array('label' => 'Public?'));
-//         $builder->add('email');
-//     }
-    
-//     public function getName()
-//     {
-//         return 'ens_goodjobbundle_jobtype';
-//     }
-// }

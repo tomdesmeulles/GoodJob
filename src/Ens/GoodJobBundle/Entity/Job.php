@@ -40,6 +40,16 @@ class Job
     private $url;
 
     /**
+     * @var float
+     */
+    private $latitude;
+
+    /**
+     * @var float
+     */
+    private $longitude;
+
+    /**
      * @var string
      */
     private $position;
@@ -256,6 +266,11 @@ class Job
      */
     public function setLocation($location)
     {
+
+        // instancier $ location = geocoder etc.. stocker le param location modifié .. 
+        //voir aussi avec le preupload .
+        //getgeocoderLocation.
+        // modifier une propriete avant stcker en bdd.. 
         $this->location = $location;
 
         return $this;
@@ -673,4 +688,50 @@ class Job
   
 
 
+
+    /**
+     * Set latitude
+     *
+     * @param string $latitude
+     * @return Job
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    /**
+     * Get latitude
+     *
+     * @return string 
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * Set longitude
+     *
+     * @param float $longitude
+     * @return Job
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Get longitude
+     *
+     * @return float 
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
 }

@@ -6,6 +6,11 @@
 {% endblock %}
 
 {% block content %}
+
+<!-- {{ google_map_container(map) }}
+{{ google_map_css(map) }}
+{{ google_map_js(map) }} -->
+
     <div id="jobs">
         {% for category in categories %}
          <div>
@@ -16,19 +21,9 @@
  
 
             {% include 'EnsGoodJobBundle:Job:list.html.twig' with {'jobs': category.activejobs} %}
-           <!--  <table class="jobs">
-                {% for entity in category.activejobs %}
-                    <tr class="{{ cycle  (['even', 'odd'], loop.index) }}">
-                        <td class="location">{{ entity.location }}</td>
-                        <td class="position">
-                            <a href="{{ path('ens_job_show', { 'id': entity.id, 'company': entity.companySlug, 'location': entity.locationSlug, 'position': entity.positionSlug }) }}">
-                                {{ entity.position }}
-                            </a>
-                        </td>
-                        <td class="company">{{ entity.company }}</td>
-                    </tr>
-                {% endfor %}
-            </table> -->
+            
+        
+        
 
              {% if category.morejobs %}
                 <div class="more_jobs">

@@ -1,0 +1,3 @@
+ens_cv_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: EnsCvBundle:Default:index }

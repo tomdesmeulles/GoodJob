@@ -17,3 +17,14 @@ EnsGoodJobBundle_homepage:
 EnsGoodJobBundle_category:
     pattern: /category/{slug}/{page}
     defaults: { _controller: EnsGoodJobBundle:Category:show, page:1 }
+
+login:
+    pattern:   /login
+    defaults:  { _controller: EnsGoodJobBundle:Default:login }
+login_check:
+    pattern:   /login_check
+    defaults: { _controller: EnsGoodJobBundle:Job:index }
+
+logout:
+    pattern:   /logout
+    defaults: { _controller: EnsGoodJobBundle:Job:index }
