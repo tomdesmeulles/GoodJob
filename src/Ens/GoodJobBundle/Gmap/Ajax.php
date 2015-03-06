@@ -1,6 +1,6 @@
 <?php 
 
-namespace Ens\GoodJobBundle\Controller;
+namespace Ens\GoodJobBundle\Gmap;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

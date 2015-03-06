@@ -20,8 +20,7 @@ Ens\CvBundle\Entity\Cv:
       length: 255
       nullable: true
     age:
-      type: date
-      length: 8
+      type: datetime
     email:
       type: string
       length: 255
@@ -33,34 +32,30 @@ Ens\CvBundle\Entity\Cv:
       length: 255
       nullable: true
 #Experience pro
-    exp_name:
+    expName:
       type: string
       length: 255
     entreprise:
       type: string
       length: 255
-    date_deb:
-      type: date
-      length: 8
-    date_fin:
-      type: date
-      length: 8
+    dateDeb:
+      type: datetime
+    dateFin:
+      type: datetime
     description:
       type: text
       length: 255
 #FORMATIONS
-    form_name:
+    formName:
       type: string
       length: 255
     univ:
       type: string
       length: 255
-    date_debForm:
-      type: date
-      length: 255
-    date_finForm:
-      type: date
-      length: 255
+    dateDebForm:
+      type: datetime
+    dateFinForm:
+      type: datetime
   manyToOne:
     CategoryCv:
       targetEntity: CategoryCv

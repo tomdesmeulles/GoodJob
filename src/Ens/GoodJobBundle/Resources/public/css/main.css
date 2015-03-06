@@ -32,33 +32,109 @@ body
 {
   margin-left: auto;
   margin-right: auto;
-  background: #fff url(../images/bg-page.png) bottom repeat-x;
+  background: #fff;
 }
 
-#header
-{
-  background: url(../images/bg-header.jpg) repeat-x top;
+.top-header{
+  display: block;
+  height: 70px;
+  width: 100%;
+  background-color: #18568C;
+}
+.connectHeader{
+  display: block;
+  height: 30px;
+  width: 100%;
+  background-color: #18568C;
 }
 
-#header h1
-{
-  height: 110px;
-  width: 783px;
-  margin: 0 auto;
+
+ul#menu_horizontal2{ 
+width: 100%;
+height:30px;
+vertical-align: middle;
 }
 
-#header h1 a {
+ul#menu_horizontal2 li a { 
+display : inline-block;
+width: 100%;
+height: 30px;
+text-align: center;
+text-decoration: none;
+color: #fff;
+
+}
+ul#menu_horizontal2 li { 
+display : inline-block;
+width: 30%;
+line-height: 30px;
+float: right;
+color: #fff;
+font-size: 1.6em;
+}
+
+
+/* Je sélectionne les <li> du menu horizontal */
+
+ul#menu_horizontal{ 
+width: 100%;
+height: 70px;
+vertical-align: middle;
+}
+
+ul#menu_horizontal li { 
+display : inline-block;
+width: 20%;
+line-height: 70px;
+float: left;
+text-align: center;
+}
+
+ul#menu_horizontal li a { 
+display : inline-block;
+width: 100%;
+height: 70px;
+text-align: center;
+text-decoration: none;
+color: #fff;
+font-size: 1.6em;
+}
+
+
+
+ul#menu_horizontal li a:hover{ 
+display : inline-block;
+width: 100%;
+height: 70px;
+text-align: center;
+text-decoration: none;
+color: #fff;
+font-size: 1.6em;
+background-color: #69D0CB;
+}
+
+.imgLogo{
   display: block;
   width: 150px;
-  height: 110px;
-  background: url(../images/logo.jpg) no-repeat;
+  height: 70px;
+  margin: auto;
 }
 
 
-#header h1 img
+
+.li-menuHeader 
 {
-  display: none;
+  display: inline;
+  width: 100px;
+  height: 70px;
 }
+
+.li-connectHead{
+  display: inline;
+  width: 33%;
+  height: 30px;
+}
+
 
 #header .post
 {
@@ -69,13 +145,21 @@ body
 
 #sub_header .search input
 {
-  background: url(../images/button-search.jpg) no-repeat;
-  text-indent: -9999px;
   border: 0;
   width: 95px;
   height: 40px;
   margin-left: 10px;
 }
+
+
+
+
+
+
+
+
+   
+
 
 #sub_header .search input:hover
 {
@@ -373,4 +457,26 @@ em
 #job_form .radio_list li
 {
   display: inline;
+}
+
+
+
+/*** /  SLIDE /**/
+
+.coin-slider { overflow: hidden; zoom: 1; position: relative; }
+.coin-slider a{ text-decoration: none; outline: none; border: none; }
+
+.cs-buttons { font-size: 0px; padding: 10px; float: left; }
+.cs-buttons a { margin-left: 5px; height: 10px; width: 10px; float: left; border: 1px solid #B8C4CF; color: #B8C4CF; text-indent: -1000px; }
+.cs-active { background-color: #B8C4CF; color: #FFFFFF; }
+
+.cs-title { width: 545px; padding: 10px; background-color: #000000; color: #FFFFFF; }
+
+.cs-prev, 
+.cs-next { background-color: #000000; color: #FFFFFF; padding: 0px 10px; }
+
+#coin-slider-coin-slider{
+  width: 800px;
+  height: 350px;
+  margin: auto;
 }

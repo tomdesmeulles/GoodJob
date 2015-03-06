@@ -1,3 +1,23 @@
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /connect
+
+facebook_login:
+    pattern: /socialLogin/check-facebook
+
+hwi_oauth_login:
+    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
+    prefix:   /socialLogin
+
+
+# app/config/routing.yml
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+ens_user:
+    resource: "@EnsUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ens_cv:
     resource: "@EnsCvBundle/Resources/config/routing.yml"
     prefix:   /

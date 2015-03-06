@@ -26,6 +26,9 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Ivory\GoogleMapBundle\IvoryGoogleMapBundle(),
             new Ens\CvBundle\EnsCvBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new Ens\UserBundle\EnsUserBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

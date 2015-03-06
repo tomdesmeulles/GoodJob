@@ -9,6 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Cv
 {
+
+
+
+
     /**
      * @var integer
      */
@@ -52,7 +56,7 @@ class Cv
     /**
      * @var string
      */
-    private $exp_name;
+    private $expName;
 
     /**
      * @var string
@@ -62,22 +66,12 @@ class Cv
     /**
      * @var \DateTime
      */
-    private $date_deb;
+    private $dateDeb;
 
     /**
      * @var \DateTime
      */
-    private $date_fin;
-
-    /**
-     * @var \DateTime
-     */
-    private $date_debForm;
-
-    /**
-     * @var \DateTime
-     */
-    private $date_finForm;
+    private $dateFin;
 
     /**
      * @var string
@@ -87,12 +81,22 @@ class Cv
     /**
      * @var string
      */
-    private $form_name;
+    private $formName;
 
     /**
      * @var string
      */
     private $univ;
+
+    /**
+     * @var \DateTime
+     */
+    private $dateDebForm;
+
+    /**
+     * @var \DateTime
+     */
+    private $dateFinForm;
 
     /**
      * @var \Ens\CvBundle\Entity\CategoryCv
@@ -103,14 +107,13 @@ class Cv
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer f
      */
     public function getId()
     {
         return $this->id;
     }
 
-   
     /**
      * Set photoCv
      *
@@ -273,26 +276,26 @@ class Cv
     }
 
     /**
-     * Set exp_name
+     * Set expName
      *
      * @param string $expName
      * @return Cv
      */
-    public function setExp_Name($expName)
+    public function setExp_name($expName)
     {
-        $this->exp_name = $expName;
+        $this->expName = $expName;
 
         return $this;
     }
 
     /**
-     * Get exp_name
+     * Get expName
      *
      * @return string 
      */
-    public function getExp_Name()
+    public function getExp_name()
     {
-        return $this->exp_name;
+        return $this->expName;
     }
 
     /**
@@ -319,49 +322,49 @@ class Cv
     }
 
     /**
-     * Set date_deb
+     * Set dateDeb
      *
      * @param \DateTime $dateDeb
      * @return Cv
      */
     public function setDate_Deb($dateDeb)
     {
-        $this->date_deb = $dateDeb;
+        $this->dateDeb = $dateDeb;
 
         return $this;
     }
 
     /**
-     * Get date_deb
+     * Get dateDeb
      *
      * @return \DateTime 
      */
     public function getDate_Deb()
     {
-        return $this->date_deb;
+        return $this->dateDeb;
     }
 
     /**
-     * Set date_fin
+     * Set dateFin
      *
      * @param \DateTime $dateFin
      * @return Cv
      */
     public function setDate_Fin($dateFin)
     {
-        $this->date_fin = $dateFin;
+        $this->dateFin = $dateFin;
 
         return $this;
     }
 
     /**
-     * Get date_fin
+     * Get dateFin
      *
      * @return \DateTime 
      */
     public function getDate_Fin()
     {
-        return $this->date_fin;
+        return $this->dateFin;
     }
 
     /**
@@ -388,26 +391,26 @@ class Cv
     }
 
     /**
-     * Set form_name
+     * Set formName
      *
      * @param string $formName
      * @return Cv
      */
     public function setForm_Name($formName)
     {
-        $this->form_name = $formName;
+        $this->formName = $formName;
 
         return $this;
     }
 
     /**
-     * Get form_name
+     * Get formName
      *
      * @return string 
      */
     public function getForm_Name()
     {
-        return $this->form_name;
+        return $this->formName;
     }
 
     /**
@@ -431,6 +434,52 @@ class Cv
     public function getUniv()
     {
         return $this->univ;
+    }
+
+    /**
+     * Set dateDebForm
+     *
+     * @param \DateTime $dateDebForm
+     * @return Cv
+     */
+    public function setDate_DebForm($dateDebForm)
+    {
+        $this->dateDebForm = $dateDebForm;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDebForm
+     *
+     * @return \DateTime 
+     */
+    public function getDate_DebForm()
+    {
+        return $this->dateDebForm;
+    }
+
+    /**
+     * Set dateFinForm
+     *
+     * @param \DateTime $dateFinForm
+     * @return Cv
+     */
+    public function setDate_FinForm($dateFinForm)
+    {
+        $this->dateFinForm = $dateFinForm;
+
+        return $this;
+    }
+
+    /**
+     * Get dateFinForm
+     *
+     * @return \DateTime 
+     */
+    public function getDate_FinForm()
+    {
+        return $this->dateFinForm;
     }
 
     /**
@@ -469,51 +518,5 @@ class Cv
     public function setUpdatedAtValue()
     {
         // Add your code here
-    }
-
-    /**
-     * Set date_debForm
-     *
-     * @param \DateTime $dateDebForm
-     * @return Cv
-     */
-    public function setDate_DebForm($dateDebForm)
-    {
-        $this->date_debForm = $dateDebForm;
-
-        return $this;
-    }
-
-    /**
-     * Get date_debForm
-     *
-     * @return \DateTime 
-     */
-    public function getDate_DebForm()
-    {
-        return $this->date_debForm;
-    }
-
-    /**
-     * Set date_finForm
-     *
-     * @param \DateTime $dateFinForm
-     * @return Cv
-     */
-    public function setDate_FinForm($dateFinForm)
-    {
-        $this->date_finForm = $dateFinForm;
-
-        return $this;
-    }
-
-    /**
-     * Get date_finForm
-     *
-     * @return \DateTime 
-     */
-    public function getDate_FinForm()
-    {
-        return $this->date_finForm;
     }
 }
