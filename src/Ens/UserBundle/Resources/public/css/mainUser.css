@@ -1,0 +1,16 @@
+body{
+	background-color: #18568C;
+}
+
+div.socialLogo > div > a{
+	color: #FFF;
+	text-decoration: none;
+	font-weight: 1.5em;
+}
+
+.blocGenConect{
+	width: 800px;
+	height: 400px;
+	display: inline-block;
+	margin: auto;
+}

@@ -1,3 +1,7 @@
-ens_cv_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: EnsCvBundle:Default:index }
+EnsCvBundle_cv:
+    resource: "@EnsCvBundle/Resources/config/routing/cv.yml"
+    prefix: /cv
+
+EnsCvBundle_homepage:
+    path:  /Cv/index
+    defaults: { _controller: EnsCvBundle:Cv:index }

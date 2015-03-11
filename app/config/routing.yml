@@ -5,6 +5,12 @@ hwi_oauth_redirect:
 facebook_login:
     pattern: /socialLogin/check-facebook
 
+google_login:
+    pattern: /socialLogin/check-google
+
+linkedin_login:
+    pattern: /socialLogin/check-linkedin
+
 hwi_oauth_login:
     resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
     prefix:   /socialLogin

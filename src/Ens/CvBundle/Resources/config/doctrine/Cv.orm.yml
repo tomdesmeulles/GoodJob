@@ -20,7 +20,8 @@ Ens\CvBundle\Entity\Cv:
       length: 255
       nullable: true
     age:
-      type: datetime
+      type: string
+      length: 10
     email:
       type: string
       length: 255
@@ -39,9 +40,11 @@ Ens\CvBundle\Entity\Cv:
       type: string
       length: 255
     dateDeb:
-      type: datetime
+      type: string
+      length: 10
     dateFin:
-      type: datetime
+      type: string
+      length: 10
     description:
       type: text
       length: 255
@@ -53,16 +56,15 @@ Ens\CvBundle\Entity\Cv:
       type: string
       length: 255
     dateDebForm:
-      type: datetime
+      type: string
+      length: 10
     dateFinForm:
-      type: datetime
-  manyToOne:
-    CategoryCv:
-      targetEntity: CategoryCv
-      inversedBy: cvs
-      joinColumn:
-        name: categoryCv_id
-        referencedColumnName: id
-  lifecycleCallbacks:
-    prePersist: [ setCreatedAtValue ]
-    preUpdate: [ setUpdatedAtValue ]
+      type: string
+      length: 10
+    # manyToOne:
+    #   category:
+    #     targetEntity: CategoryCv
+    #     inversedBy: cvs
+    #     joinColumn:
+    #       name: categoryCv_id
+    #       referencedColumnName: id

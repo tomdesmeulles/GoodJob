@@ -104,10 +104,15 @@ class Cv
     private $CategoryCv;
 
 
+   
+
+
+
+
     /**
      * Get id
      *
-     * @return integer f
+     * @return integer 
      */
     public function getId()
     {
@@ -186,7 +191,7 @@ class Cv
     /**
      * Set age
      *
-     * @param \DateTime $age
+     * @param string $age
      * @return Cv
      */
     public function setAge($age)
@@ -199,7 +204,7 @@ class Cv
     /**
      * Get age
      *
-     * @return \DateTime 
+     * @return string 
      */
     public function getAge()
     {
@@ -281,7 +286,7 @@ class Cv
      * @param string $expName
      * @return Cv
      */
-    public function setExp_name($expName)
+    public function setExpName($expName)
     {
         $this->expName = $expName;
 
@@ -293,7 +298,7 @@ class Cv
      *
      * @return string 
      */
-    public function getExp_name()
+    public function getExpName()
     {
         return $this->expName;
     }
@@ -324,10 +329,10 @@ class Cv
     /**
      * Set dateDeb
      *
-     * @param \DateTime $dateDeb
+     * @param string $dateDeb
      * @return Cv
      */
-    public function setDate_Deb($dateDeb)
+    public function setDateDeb($dateDeb)
     {
         $this->dateDeb = $dateDeb;
 
@@ -337,9 +342,9 @@ class Cv
     /**
      * Get dateDeb
      *
-     * @return \DateTime 
+     * @return string 
      */
-    public function getDate_Deb()
+    public function getDateDeb()
     {
         return $this->dateDeb;
     }
@@ -347,10 +352,10 @@ class Cv
     /**
      * Set dateFin
      *
-     * @param \DateTime $dateFin
+     * @param string $dateFin
      * @return Cv
      */
-    public function setDate_Fin($dateFin)
+    public function setDateFin($dateFin)
     {
         $this->dateFin = $dateFin;
 
@@ -360,9 +365,9 @@ class Cv
     /**
      * Get dateFin
      *
-     * @return \DateTime 
+     * @return string 
      */
-    public function getDate_Fin()
+    public function getDateFin()
     {
         return $this->dateFin;
     }
@@ -396,7 +401,7 @@ class Cv
      * @param string $formName
      * @return Cv
      */
-    public function setForm_Name($formName)
+    public function setFormName($formName)
     {
         $this->formName = $formName;
 
@@ -408,7 +413,7 @@ class Cv
      *
      * @return string 
      */
-    public function getForm_Name()
+    public function getFormName()
     {
         return $this->formName;
     }
@@ -439,10 +444,10 @@ class Cv
     /**
      * Set dateDebForm
      *
-     * @param \DateTime $dateDebForm
+     * @param string $dateDebForm
      * @return Cv
      */
-    public function setDate_DebForm($dateDebForm)
+    public function setDateDebForm($dateDebForm)
     {
         $this->dateDebForm = $dateDebForm;
 
@@ -452,9 +457,9 @@ class Cv
     /**
      * Get dateDebForm
      *
-     * @return \DateTime 
+     * @return string 
      */
-    public function getDate_DebForm()
+    public function getDateDebForm()
     {
         return $this->dateDebForm;
     }
@@ -462,10 +467,10 @@ class Cv
     /**
      * Set dateFinForm
      *
-     * @param \DateTime $dateFinForm
+     * @param string $dateFinForm
      * @return Cv
      */
-    public function setDate_FinForm($dateFinForm)
+    public function setDateFinForm($dateFinForm)
     {
         $this->dateFinForm = $dateFinForm;
 
@@ -475,48 +480,63 @@ class Cv
     /**
      * Get dateFinForm
      *
-     * @return \DateTime 
+     * @return string 
      */
-    public function getDate_FinForm()
+    public function getDateFinForm()
     {
         return $this->dateFinForm;
     }
 
+
     /**
-     * Set CategoryCv
+     * Set categoryCv
      *
-     * @param \Ens\CvBundle\Entity\CategoryCv $categoryCv
+     * @param \Ens\GoodJobBundle\Entity\CategoryCv $categoryCv
      * @return Cv
      */
-    public function setCategoryCv(\Ens\CvBundle\Entity\CategoryCv $categoryCv = null)
+    public function setCategoryCv()
     {
-        $this->CategoryCv = $categoryCv;
+        $this->categoryCv = $categoryCv;
 
         return $this;
     }
 
     /**
-     * Get CategoryCv
+     * Get categoryCv
      *
-     * @return \Ens\CvBundle\Entity\CategoryCv 
+     * @return \Ens\GoodJobBundle\Entity\CategoryCv 
      */
     public function getCategoryCv()
     {
-        return $this->CategoryCv;
-    }
-    /**
-     * @ORM\PrePersist
-     */
-    public function setCreatedAtValue()
-    {
-        // Add your code here
+        return $this->categoryCv;
     }
 
     /**
-     * @ORM\PreUpdate
+     * @var string
      */
-    public function setUpdatedAtValue()
+    private $manyToOne;
+
+
+    /**
+     * Set manyToOne
+     *
+     * @param string $manyToOne
+     * @return Cv
+     */
+    public function setManyToOne($manyToOne)
     {
-        // Add your code here
+        $this->manyToOne = $manyToOne;
+
+        return $this;
+    }
+
+    /**
+     * Get manyToOne
+     *
+     * @return string 
+     */
+    public function getManyToOne()
+    {
+        return $this->manyToOne;
     }
 }

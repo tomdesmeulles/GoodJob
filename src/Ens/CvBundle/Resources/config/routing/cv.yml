@@ -1,0 +1,3 @@
+EnsCvBundle_homepage:
+    path:  /
+    defaults: { _controller: EnsCvBundle:Cv:index }

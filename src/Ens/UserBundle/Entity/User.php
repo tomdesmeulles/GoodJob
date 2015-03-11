@@ -25,6 +25,21 @@ class User extends BaseUser
      * @ORM\Column(name="facebookId", type="string", length=255,  nullable=true)
      */
     protected $facebookId;
+
+    /**
+    * @var string
+    *
+    * @ORM\Column(name="googleId", type="string", length=255,  nullable=true)
+    */
+    protected $googleId;
+
+
+    /**
+    * @var string
+    *
+    * @ORM\Column(name="linkedinId", type="string", length=255,  nullable=true)
+    */
+    protected $linkedinId;
     
  
     public function __construct()
@@ -64,5 +79,51 @@ class User extends BaseUser
     public function getFacebookId()
     {
         return $this->facebookId;
+    }
+
+    /**
+     * Set googleId
+     *
+     * @param string $googleId
+     * @return User
+     */
+    public function setGoogleId($googleId)
+    {
+        $this->googleId = $googleId;
+
+        return $this;
+    }
+
+    /**
+     * Get googleId
+     *
+     * @return string 
+     */
+    public function getGoogleId()
+    {
+        return $this->googleId;
+    }
+
+    /**
+     * Set linkedinId
+     *
+     * @param string $linkedinId
+     * @return User
+     */
+    public function setLinkedinId($linkedinId)
+    {
+        $this->linkedinId = $linkedinId;
+
+        return $this;
+    }
+
+    /**
+     * Get linkedinId
+     *
+     * @return string 
+     */
+    public function getLinkedinId()
+    {
+        return $this->linkedinId;
     }
 }

@@ -1,12 +1,12 @@
-{% extends 'EnsJobeetBundle::layout.html.twig' %}
+{% extends '::layout.html.twig' %}
  
 {% block stylesheets %}
   {{ parent() }}
-  <link rel="stylesheet" href="{{ asset('bundles/ensjobeet/css/jobs.css') }}" type="text/css" media="all" />
+  <link rel="stylesheet" href="{{ asset('bundles/enscv/css/cvs.css') }}" type="text/css" media="all" />
 {% endblock %}
  
 {% block content %}
-    <h1>Job list</h1>
+    <h1>Cv list</h1>
  
     <table class="records_list">
         <thead>
@@ -52,10 +52,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('ens_job_show', { 'id': entity.id }) }}">show</a>
+                            <a href="{{ path('ens_cv_show', { 'id': entity.id }) }}">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('ens_job_edit', { 'id': entity.id }) }}">edit</a>
+                            <a href="{{ path('ens_cv_edit', { 'id': entity.id }) }}">edit</a>
                         </li>
                     </ul>
                 </td>

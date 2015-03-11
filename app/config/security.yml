@@ -19,7 +19,9 @@ security:
                 provider: fos_userbundle
           oauth:
             resource_owners:
-              facebook: "/socialLogin/check-facebook"   
+              facebook: "/socialLogin/check-facebook"
+              google: "/socialLogin/check-google"
+              linkedin: "/socialLogin/check-linkedin" 
             login_path: /login
             failure_path: /login
             oauth_user_provider:

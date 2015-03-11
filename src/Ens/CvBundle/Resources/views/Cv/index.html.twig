@@ -1,0 +1,14 @@
+{% extends '::layout.html.twig' %}
+ 
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('bundles/enscv/css/cvs.css') }}" type="text/css" media="all" />
+{% endblock %}
+ 
+{% block content %}
+    <div id="cvs">
+      <table class="cvs">
+       
+      </table>
+    </div>
+{% endblock %}

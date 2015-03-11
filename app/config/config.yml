@@ -28,6 +28,8 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    serializer:
+        enabled: true
 
 # Twig Configuration
 twig:
@@ -102,3 +104,19 @@ hwi_oauth:
       scope: "email"
       paths:
         email: email
+    google:
+        type: google
+        client_id: %oauth.google.id%
+        client_secret: %oauth.google.secret%
+        scope: "https://www.googleapis.com/auth/userinfo.email"
+    linkedin:
+        type: linkedin
+        client_id: %oauth.linkedin.id%
+        client_secret: %oauth.linkedin.secret%
+        scope: "email"
+
+services:
+    object_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+        tags:
+          - { name: serializer.normalizer }

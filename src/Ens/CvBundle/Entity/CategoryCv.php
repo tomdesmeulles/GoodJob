@@ -97,4 +97,23 @@ class CategoryCv
     {
         return $this->cvs;
     }
+
+
+        public function setCategoryCv()
+    {
+        $this->categoryCv = $categoryCv;
+
+        return $this;
+    }
+
+
+    public function getCategoryCv()
+    {
+        return $this->categoryCv;
+    }
+
+    public function __toString()
+    {
+      return $this->getName();
+    }
 }
