@@ -1,0 +1,12 @@
+EnsCvBundle_cv:
+    resource: "@EnsCvBundle/Resources/config/routing/cv.yml"
+    prefix: /cv
+
+# EnsCvBundle_accueil:
+#     pattern:  /hello/{name}
+#         path:  /Cv/index
+#     defaults: { _controller: EnsCvBundle:Default:index }
+
+EnsCvBundle_accueil:
+    pattern:  /Cv/index
+    defaults: { _controller: EnsCvBundle:Cv:index }

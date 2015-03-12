@@ -1,0 +1,74 @@
+{% extends '::layout.html.twig' %}
+ 
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('bundles/enscv/css/cvs.css') }}" type="text/css" media="all" />
+{% endblock %}
+ 
+{% block content %}
+    <h1>Cv list</h1>
+ 
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>photoCv</th>
+                <th>prenom</th>
+                <th>nom</th>
+                <th>age</th>
+                <th>email</th>
+                <th>adresse</th>
+                <th>urlFolio</th>
+                <th>expName</th>
+                <th>entreprise</th>
+                <th>dateDeb</th>
+                <th>dateFin</th>
+                <th>description</th>
+                <th>formName</th>
+                <th>univ</th>
+                <th>dateDebForm</th>
+                <th>dateFinForm</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('ens_cv_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.photoCv }}</td>
+                <td>{{ entity.prenom }}</td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.age }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.adresse }}</td>
+                <td>{{ entity.urlFolio }}</td>
+                <td>{{ entity.expName }}</td>
+                <td>{{ entity.entreprise }}</td>
+                <td>{{ entity.dateDeb }}</td>
+                <td>{{ entity.dateFin }}</td>
+                <td>{{ entity.description }}</td>
+                <td>{{ entity.formName }}</td>
+                <td>{{ entity.univ }}</td>
+                <td>{{ entity.dateFinForm }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('ens_cv_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('ens_cv_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ 
+    <ul>
+        <li>
+            <a href="{{ path('ens_cv_new') }}">
+                Create a new cv
+            </a>
+        </li>
+    </ul>
+{% endblock %}

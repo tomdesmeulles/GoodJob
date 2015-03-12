@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Ens\GoodJobBundle\Utils\GoodJob as GoodJob;
 
+
+
 /**
  * Job
  */
@@ -19,7 +21,8 @@ class Job
     /**
      * @var string
      */
-    private $type;
+    protected $type;
+
 
     /**
      * @var string
@@ -35,6 +38,16 @@ class Job
      * @var string
      */
     private $url;
+
+    /**
+     * @var float
+     */
+    private $latitude;
+
+    /**
+     * @var float
+     */
+    private $longitude;
 
     /**
      * @var string
@@ -119,6 +132,10 @@ class Job
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getType(){
+        return $this->type;
     }
 
     /**
@@ -249,6 +266,11 @@ class Job
      */
     public function setLocation($location)
     {
+
+        // instancier $ location = geocoder etc.. stocker le param location modifié .. 
+        //voir aussi avec le preupload .
+        //getgeocoderLocation.
+        // modifier une propriete avant stcker en bdd.. 
         $this->location = $location;
 
         return $this;
@@ -561,7 +583,7 @@ class Job
     
     protected function getUploadRootDir()
     {
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return __DIR__.'/../../../../web/uploads'.$this->getUploadDir();
     }
     
     
@@ -577,6 +599,7 @@ class Job
     }
 
 
+// ajouter les protected .. 
 
     public function setTokenValue()
     {
@@ -586,20 +609,30 @@ class Job
         }
     }
 
-
-
-
-
-
-    /**
-     * Get type
-     *
-     * @return string 
-     */
-    public function getType()
+    public function isExpired()
     {
-        return $this->type;
+        return $this->getDaysBeforeExpires() < 0;
     }
+    
+    public function expiresSoon()
+    {
+        return $this->getDaysBeforeExpires() < 5;
+    }
+    
+    public function getDaysBeforeExpires()
+    {
+        return ceil(($this->getExpiresAt()->format('U') - time()) / 86400);
+    }
+
+
+
+    public function publish()
+    {
+        $this->setIsActivated(true);
+    }
+
+
+
 
 
     /**
@@ -613,9 +646,9 @@ class Job
         }
     }
 
-
+    // enlever les deux anotations
     /**
-    * @ORM\postPersist
+    * 
     */
     public function upload()
     {
@@ -629,13 +662,26 @@ class Job
         unset($this->file);
     }
     /**
-    * @ORM\postRemove
+    * 
     */
     public function removeUpload()
     {
         if ($file = $this->getAbsolutePath()) {
             unlink($file);
         }
+    }
+
+
+    public function extend()
+    {
+      if (!$this->expiresSoon())
+      {
+        return false;
+      }
+     
+      $this->expires_at = new \DateTime(date('Y-m-d H:i:s', time() + 86400 * 30));
+     
+      return true;
     }
 
 

@@ -1,0 +1,36 @@
+{% extends '::layout.html.twig' %}
+ 
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('bundles/enscv/css/cvs.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block content %}
+    <div id="cvs">
+      <table class="cvs">
+        {% for categoryCv in categories %}
+          <div>
+            <div class="category">
+              <h1>{{ categoryCv.name }}</h1>
+            </div>
+            <table class="jobs">
+              {% for entity in categoryCv.activecvs %}
+                <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+                  <td class="location">{{ entity.postRecherche }}</td>
+                  <td class="position">
+                    <a href="{{ path('ens_cv_show', { 'id': entity.id, 'prenom': entity.prenomSlug, 'nom': entity.nomSlug, 'postRecherche': entity.postRechercheSlug }) }}">
+                      {{ entity.prenom }}
+                    </a>
+                  </td>
+                  <td class="company">{{ entity.nom }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+        {% endfor %}
+      </table>
+    </div>
+{% endblock %}
+
+
+

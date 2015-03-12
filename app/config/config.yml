@@ -5,11 +5,12 @@ imports:
 
 parameters:
     max_jobs_on_homepage: "10"
-    max_jobs_on_category: "20"
+    max_cvs_on_indexpage: "10"
+    max_jobs_on_category: "10"
 
 framework:
     #esi:             ~
-    #translator:      { fallback: "%locale%" }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -28,6 +29,8 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    serializer:
+        enabled: true
 
 # Twig Configuration
 twig:
@@ -76,3 +79,45 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # Enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+        # Your other blocks
+        sonata.block.service.text:
+        sonata.block.service.action:
+        sonata.block.service.rss:
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Ens\UserBundle\Entity\User
+
+
+hwi_oauth:
+  firewall_name: main
+  resource_owners:
+    facebook:
+      type: facebook
+      client_id: %oauth.facebook.id%
+      client_secret: %oauth.facebook.secret%
+      scope: "email"
+      paths:
+        email: email
+    google:
+        type: google
+        client_id: %oauth.google.id%
+        client_secret: %oauth.google.secret%
+        scope: email
+    linkedin:
+        type: linkedin
+        client_id: %oauth.linkedin.id%
+        client_secret: %oauth.linkedin.secret%
+       # scope: email
+
+services:
+    object_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+        tags:
+          - { name: serializer.normalizer }

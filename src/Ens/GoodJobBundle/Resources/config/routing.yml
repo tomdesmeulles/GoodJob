@@ -1,11 +1,3 @@
-# ens_good_job_ens_job:
-#     resource: "@EnsGoodJobBundle/Resources/config/routing/job.yml"
-#     prefix:   /ens_job
-
-# ens_good_job_homepage:
-#     path:     /hello/{name}
-#     defaults: { _controller: EnsGoodJobBundle:Default:index }
-
 EnsGoodJobBundle_job:
     resource: "@EnsGoodJobBundle/Resources/config/routing/job.yml"
     prefix:   /job
@@ -17,3 +9,18 @@ EnsGoodJobBundle_homepage:
 EnsGoodJobBundle_category:
     pattern: /category/{slug}/{page}
     defaults: { _controller: EnsGoodJobBundle:Category:show, page:1 }
+
+login:
+    pattern:   /login
+    defaults:  { _controller: EnsGoodJobBundle:Default:login }
+login_check:
+    pattern:   /login_check
+    defaults: { _controller: EnsGoodJobBundle:Job:index }
+
+logout:
+    pattern:   /logout
+    defaults: { _controller: EnsGoodJobBundle:Job:index }
+
+EnsGoodJobBundle_json:
+    path:     /json
+    defaults: { _controller: EnsGoodJobBundle:Job:json }

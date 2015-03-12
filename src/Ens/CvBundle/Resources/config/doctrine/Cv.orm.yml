@@ -1,0 +1,134 @@
+Ens\CvBundle\Entity\Cv:
+  type: entity
+  repositoryClass: Ens\CvBundle\Repository\CvRepository
+  table: cv
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+#Infos candidat
+    photoCv:
+      type: string
+      length: 255
+      nullable: true
+    prenom:
+      type: string
+      length: 255
+      nullable: true
+    nom:
+      type: string
+      length: 255
+      nullable: true
+    age:
+      type: string
+      length: 10
+    email:
+      type: string
+      length: 255
+    adresse:
+      type: string
+      length: 255
+    urlFolio:
+      type: string
+      length: 255
+      nullable: true
+    postRecherche:
+      type: string
+      length: 255
+      nullable: false
+#Experience pro 1 
+    expName1:
+      type: string
+      length: 255
+    entreprise1:
+      type: string
+      length: 255
+    dateDeb1:
+      type: string
+      length: 10
+    description1:
+      type: text
+      length: 255
+#Experience pro 2
+    expName2:
+      type: string
+      length: 255
+    entreprise2:
+      type: string
+      length: 255
+    dateDeb2:
+      type: string
+      length: 10
+    description2:
+      type: text
+      length: 255
+#Experience pro 3 
+    expName3:
+      type: string
+      length: 255
+    entreprise3:
+      type: string
+      length: 255
+    dateDeb3:
+      type: string
+      length: 10
+    description3:
+      type: text
+      length: 255
+#FORMATIONS 1
+    formName1:
+      type: string
+      length: 255
+    univ1:
+      type: string
+      length: 255
+    dateDebForm1:
+      type: string
+      length: 10
+    formDescription1:
+      type: text
+      length: 255
+#FORMATIONS 2
+    formName2:
+      type: string
+      length: 255
+    univ2:
+      type: string
+      length: 255
+    dateDebForm2:
+      type: string
+      length: 10
+    formDescription2:
+      type: text
+      length: 255
+    #FORMATIONS 3
+    formName3:
+      type: string
+      length: 255
+    univ3:
+      type: string
+      length: 255
+    dateDebForm3:
+      type: string
+      length: 10
+    formDescription3:
+      type: text
+      length: 255
+    expires_at:
+      type: datetime
+    created_at:
+      type: datetime
+    updated_at:
+      type: datetime
+      nullable: true
+  manyToOne:
+    categoryCv:
+      targetEntity: CategoryCv
+      inversedBy: cvs
+      joinColumn:
+        name: categoryCv_id
+        referencedColumnName: id
+  lifecycleCallbacks:
+    prePersist: [ setCreatedAtValue, setExpiresAtValue ]
+    preUpdate: [ setUpdatedAtValue ]

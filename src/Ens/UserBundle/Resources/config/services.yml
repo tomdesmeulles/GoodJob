@@ -1,0 +1,7 @@
+parameters:
+    ens.oauth.user_provider.class: Ens\UserBundle\OAuth\UserProvider
+
+services:
+    ens.oauth.user_provider:
+        class: %ens.oauth.user_provider.class%
+        arguments: ['@fos_user.user_manager', { facebook: facebookId, google: googleId, linkedin: linkedinId }]

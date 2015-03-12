@@ -1,0 +1,20 @@
+Ens\CvBundle\Entity\CategoryAffiliateCv:
+  type: entity
+  table: category_affiliateCv
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  manyToOne:
+    categoryCv:
+      targetEntity: CategoryCv
+      inversedBy: category_affiliatesCv
+      joinColumn:
+        name: categoryCv_id
+        referencedColumnName: id
+    affiliateCv:
+      targetEntity: AffiliateCv
+      inversedBy: category_affiliatesCv
+      joinColumn:
+        name: affiliateCv_id
+        referencedColumnName: id

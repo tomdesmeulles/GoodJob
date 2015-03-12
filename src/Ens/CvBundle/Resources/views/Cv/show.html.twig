@@ -1,0 +1,53 @@
+{% extends '::layout.html.twig' %}
+ 
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('bundles/enscv/css/cvs.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block title %}
+    {{ entity.prenom }}  {{ entity.nom }} recherche un poste de : {{ entity.postRecherche }}
+{% endblock %}
+ 
+ 
+{% block content %}
+    <div id="cv">
+      <h1>{{ entity.prenom }}</h1>
+      <h2>{{ entity.nom }}</h2>
+      <h3>
+        {{ entity.age }}
+        <small> - {{ entity.age }}</small>
+      </h3>
+ 
+      {% if entity.adresse %}
+        <div class="adresse">
+          <a href="{{ entity.urlFolio }}">
+            <img src="/uploads/cvs/{{ entity.urlFolio }}"
+              alt="{{ entity.postRecherche }} postRecherche" />
+          </a>
+        </div>
+      {% endif %}
+ 
+      <div class="description">
+        {{ entity.description1|nl2br }}
+      </div>
+ 
+      <h4>Presentation du candidat</h4>
+ 
+      <p class="expName">{{ entity.entreprise1 }}</p>
+      <p class="expName">{{ entity.expName1 }}</p>      
+      <p class="expName">{{ entity.description1 }}</p>
+      <p class="expName">{{ entity.entreprise2 }}</p>
+      <p class="expName">{{ entity.expName2 }}</p>      
+      <p class="expName">{{ entity.description2 }}</p>
+      <p class="expName">{{ entity.entreprise3 }}</p>
+      <p class="expName">{{ entity.expName3 }}</p>      
+      <p class="expName">{{ entity.description3 }}</p>
+ 
+      <div style="padding: 20px 0">
+        <a href="{{ path('ens_cv_edit', { 'id': entity.id }) }}">
+          Editer
+        </a>
+      </div>
+    </div>
+{% endblock %}
