@@ -3,6 +3,7 @@
 namespace Ens\CvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Ens\CvBundle\Utils\GoodCv as GoodCv;
 
 /**
  * Cv
@@ -11,9 +12,7 @@ class Cv
 {
 
 
-
-
-    /**
+/**
      * @var integer
      */
     private $id;
@@ -34,7 +33,7 @@ class Cv
     private $nom;
 
     /**
-     * @var \DateTime
+     * @var string
      */
     private $age;
 
@@ -56,56 +55,149 @@ class Cv
     /**
      * @var string
      */
-    private $expName;
+    private $postRecherche;
 
     /**
      * @var string
      */
-    private $entreprise;
-
-    /**
-     * @var \DateTime
-     */
-    private $dateDeb;
-
-    /**
-     * @var \DateTime
-     */
-    private $dateFin;
+    private $expName1;
 
     /**
      * @var string
      */
-    private $description;
+    private $entreprise1;
 
     /**
      * @var string
      */
-    private $formName;
+    private $dateDeb1;
 
     /**
      * @var string
      */
-    private $univ;
+    private $description1;
+
+    /**
+     * @var string
+     */
+    private $expName2;
+
+    /**
+     * @var string
+     */
+    private $entreprise2;
+
+    /**
+     * @var string
+     */
+    private $dateDeb2;
+
+    /**
+     * @var string
+     */
+    private $description2;
+
+    /**
+     * @var string
+     */
+    private $expName3;
+
+    /**
+     * @var string
+     */
+    private $entreprise3;
+
+    /**
+     * @var string
+     */
+    private $dateDeb3;
+
+    /**
+     * @var string
+     */
+    private $description3;
+
+    /**
+     * @var string
+     */
+    private $formName1;
+
+    /**
+     * @var string
+     */
+    private $univ1;
+
+    /**
+     * @var string
+     */
+    private $dateDebForm1;
+
+    /**
+     * @var string
+     */
+    private $formName2;
+
+    /**
+     * @var string
+     */
+    private $univ2;
+
+    /**
+     * @var string
+     */
+    private $dateDebForm2;
+
+    /**
+     * @var string
+     */
+    private $formName3;
+
+    /**
+     * @var string
+     */
+    private $univ3;
+
+    /**
+     * @var string
+     */
+    private $dateDebForm3;
 
     /**
      * @var \DateTime
      */
-    private $dateDebForm;
+    private $expires_at;
 
     /**
      * @var \DateTime
      */
-    private $dateFinForm;
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated_at;
 
     /**
      * @var \Ens\CvBundle\Entity\CategoryCv
      */
-    private $CategoryCv;
+    private $categoryCv;
 
 
 
+    /**
+     * @var string
+     */
+    private $formDescription1;
 
+    /**
+     * @var string
+     */
+    private $formDescription2;
+
+    /**
+     * @var string
+     */
+    private $formDescription3;
 
 
     /**
@@ -280,225 +372,729 @@ class Cv
     }
 
     /**
-     * Set expName
+     * Set postRecherche
      *
-     * @param string $expName
+     * @param string $postRecherche
      * @return Cv
      */
-    public function setExpName($expName)
+    public function setPostRecherche($postRecherche)
     {
-        $this->expName = $expName;
+        $this->postRecherche = $postRecherche;
 
         return $this;
     }
 
     /**
-     * Get expName
+     * Get postRecherche
      *
      * @return string 
      */
-    public function getExpName()
+    public function getPostRecherche()
     {
-        return $this->expName;
+        return $this->postRecherche;
     }
 
     /**
-     * Set entreprise
+     * Set expName1
      *
-     * @param string $entreprise
+     * @param string $expName1
      * @return Cv
      */
-    public function setEntreprise($entreprise)
+    public function setExpName1($expName1)
     {
-        $this->entreprise = $entreprise;
+        $this->expName1 = $expName1;
 
         return $this;
     }
 
     /**
-     * Get entreprise
+     * Get expName1
      *
      * @return string 
      */
-    public function getEntreprise()
+    public function getExpName1()
     {
-        return $this->entreprise;
+        return $this->expName1;
     }
 
     /**
-     * Set dateDeb
+     * Set entreprise1
      *
-     * @param string $dateDeb
+     * @param string $entreprise1
      * @return Cv
      */
-    public function setDateDeb($dateDeb)
+    public function setEntreprise1($entreprise1)
     {
-        $this->dateDeb = $dateDeb;
+        $this->entreprise1 = $entreprise1;
 
         return $this;
     }
 
     /**
-     * Get dateDeb
+     * Get entreprise1
      *
      * @return string 
      */
-    public function getDateDeb()
+    public function getEntreprise1()
     {
-        return $this->dateDeb;
+        return $this->entreprise1;
     }
 
     /**
-     * Set dateFin
+     * Set dateDeb1
      *
-     * @param string $dateFin
+     * @param string $dateDeb1
      * @return Cv
      */
-    public function setDateFin($dateFin)
+    public function setDateDeb1($dateDeb1)
     {
-        $this->dateFin = $dateFin;
+        $this->dateDeb1 = $dateDeb1;
 
         return $this;
     }
 
     /**
-     * Get dateFin
+     * Get dateDeb1
      *
      * @return string 
      */
-    public function getDateFin()
+    public function getDateDeb1()
     {
-        return $this->dateFin;
+        return $this->dateDeb1;
     }
 
     /**
-     * Set description
+     * Set description1
      *
-     * @param string $description
+     * @param string $description1
      * @return Cv
      */
-    public function setDescription($description)
+    public function setDescription1($description1)
     {
-        $this->description = $description;
+        $this->description1 = $description1;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get description1
      *
      * @return string 
      */
-    public function getDescription()
+    public function getDescription1()
     {
-        return $this->description;
+        return $this->description1;
     }
 
     /**
-     * Set formName
+     * Set expName2
      *
-     * @param string $formName
+     * @param string $expName2
      * @return Cv
      */
-    public function setFormName($formName)
+    public function setExpName2($expName2)
     {
-        $this->formName = $formName;
+        $this->expName2 = $expName2;
 
         return $this;
     }
 
     /**
-     * Get formName
+     * Get expName2
      *
      * @return string 
      */
-    public function getFormName()
+    public function getExpName2()
     {
-        return $this->formName;
+        return $this->expName2;
     }
 
     /**
-     * Set univ
+     * Set entreprise2
      *
-     * @param string $univ
+     * @param string $entreprise2
      * @return Cv
      */
-    public function setUniv($univ)
+    public function setEntreprise2($entreprise2)
     {
-        $this->univ = $univ;
+        $this->entreprise2 = $entreprise2;
 
         return $this;
     }
 
     /**
-     * Get univ
+     * Get entreprise2
      *
      * @return string 
      */
-    public function getUniv()
+    public function getEntreprise2()
     {
-        return $this->univ;
+        return $this->entreprise2;
     }
 
     /**
-     * Set dateDebForm
+     * Set dateDeb2
      *
-     * @param string $dateDebForm
+     * @param string $dateDeb2
      * @return Cv
      */
-    public function setDateDebForm($dateDebForm)
+    public function setDateDeb2($dateDeb2)
     {
-        $this->dateDebForm = $dateDebForm;
+        $this->dateDeb2 = $dateDeb2;
 
         return $this;
     }
 
     /**
-     * Get dateDebForm
+     * Get dateDeb2
      *
      * @return string 
      */
-    public function getDateDebForm()
+    public function getDateDeb2()
     {
-        return $this->dateDebForm;
+        return $this->dateDeb2;
     }
 
     /**
-     * Set dateFinForm
+     * Set description2
      *
-     * @param string $dateFinForm
+     * @param string $description2
      * @return Cv
      */
-    public function setDateFinForm($dateFinForm)
+    public function setDescription2($description2)
     {
-        $this->dateFinForm = $dateFinForm;
+        $this->description2 = $description2;
 
         return $this;
     }
 
     /**
-     * Get dateFinForm
+     * Get description2
      *
      * @return string 
      */
-    public function getDateFinForm()
+    public function getDescription2()
     {
-        return $this->dateFinForm;
+        return $this->description2;
     }
 
+    /**
+     * Set expName3
+     *
+     * @param string $expName3
+     * @return Cv
+     */
+    public function setExpName3($expName3)
+    {
+        $this->expName3 = $expName3;
 
+        return $this;
+    }
 
-    public function setCategoryCv()
+    /**
+     * Get expName3
+     *
+     * @return string 
+     */
+    public function getExpName3()
+    {
+        return $this->expName3;
+    }
+
+    /**
+     * Set entreprise3
+     *
+     * @param string $entreprise3
+     * @return Cv
+     */
+    public function setEntreprise3($entreprise3)
+    {
+        $this->entreprise3 = $entreprise3;
+
+        return $this;
+    }
+
+    /**
+     * Get entreprise3
+     *
+     * @return string 
+     */
+    public function getEntreprise3()
+    {
+        return $this->entreprise3;
+    }
+
+    /**
+     * Set dateDeb3
+     *
+     * @param string $dateDeb3
+     * @return Cv
+     */
+    public function setDateDeb3($dateDeb3)
+    {
+        $this->dateDeb3 = $dateDeb3;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDeb3
+     *
+     * @return string 
+     */
+    public function getDateDeb3()
+    {
+        return $this->dateDeb3;
+    }
+
+    /**
+     * Set description3
+     *
+     * @param string $description3
+     * @return Cv
+     */
+    public function setDescription3($description3)
+    {
+        $this->description3 = $description3;
+
+        return $this;
+    }
+
+    /**
+     * Get description3
+     *
+     * @return string 
+     */
+    public function getDescription3()
+    {
+        return $this->description3;
+    }
+
+    /**
+     * Set formName1
+     *
+     * @param string $formName1
+     * @return Cv
+     */
+    public function setFormName1($formName1)
+    {
+        $this->formName1 = $formName1;
+
+        return $this;
+    }
+
+    /**
+     * Get formName1
+     *
+     * @return string 
+     */
+    public function getFormName1()
+    {
+        return $this->formName1;
+    }
+
+    /**
+     * Set univ1
+     *
+     * @param string $univ1
+     * @return Cv
+     */
+    public function setUniv1($univ1)
+    {
+        $this->univ1 = $univ1;
+
+        return $this;
+    }
+
+    /**
+     * Get univ1
+     *
+     * @return string 
+     */
+    public function getUniv1()
+    {
+        return $this->univ1;
+    }
+
+    /**
+     * Set dateDebForm1
+     *
+     * @param string $dateDebForm1
+     * @return Cv
+     */
+    public function setDateDebForm1($dateDebForm1)
+    {
+        $this->dateDebForm1 = $dateDebForm1;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDebForm1
+     *
+     * @return string 
+     */
+    public function getDateDebForm1()
+    {
+        return $this->dateDebForm1;
+    }
+
+    /**
+     * Set formName2
+     *
+     * @param string $formName2
+     * @return Cv
+     */
+    public function setFormName2($formName2)
+    {
+        $this->formName2 = $formName2;
+
+        return $this;
+    }
+
+    /**
+     * Get formName2
+     *
+     * @return string 
+     */
+    public function getFormName2()
+    {
+        return $this->formName2;
+    }
+
+    /**
+     * Set univ2
+     *
+     * @param string $univ2
+     * @return Cv
+     */
+    public function setUniv2($univ2)
+    {
+        $this->univ2 = $univ2;
+
+        return $this;
+    }
+
+    /**
+     * Get univ2
+     *
+     * @return string 
+     */
+    public function getUniv2()
+    {
+        return $this->univ2;
+    }
+
+    /**
+     * Set dateDebForm2
+     *
+     * @param string $dateDebForm2
+     * @return Cv
+     */
+    public function setDateDebForm2($dateDebForm2)
+    {
+        $this->dateDebForm2 = $dateDebForm2;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDebForm2
+     *
+     * @return string 
+     */
+    public function getDateDebForm2()
+    {
+        return $this->dateDebForm2;
+    }
+
+    /**
+     * Set formName3
+     *
+     * @param string $formName3
+     * @return Cv
+     */
+    public function setFormName3($formName3)
+    {
+        $this->formName3 = $formName3;
+
+        return $this;
+    }
+
+    /**
+     * Get formName3
+     *
+     * @return string 
+     */
+    public function getFormName3()
+    {
+        return $this->formName3;
+    }
+
+    /**
+     * Set univ3
+     *
+     * @param string $univ3
+     * @return Cv
+     */
+    public function setUniv3($univ3)
+    {
+        $this->univ3 = $univ3;
+
+        return $this;
+    }
+
+    /**
+     * Get univ3
+     *
+     * @return string 
+     */
+    public function getUniv3()
+    {
+        return $this->univ3;
+    }
+
+    /**
+     * Set dateDebForm3
+     *
+     * @param string $dateDebForm3
+     * @return Cv
+     */
+    public function setDateDebForm3($dateDebForm3)
+    {
+        $this->dateDebForm3 = $dateDebForm3;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDebForm3
+     *
+     * @return string 
+     */
+    public function getDateDebForm3()
+    {
+        return $this->dateDebForm3;
+    }
+
+    /**
+     * Set expires_at
+     *
+     * @param \DateTime $expiresAt
+     * @return Cv
+     */
+    public function setExpiresAt($expiresAt)
+    {
+        $this->expires_at = $expiresAt;
+
+        return $this;
+    }
+
+    /**
+     * Get expires_at
+     *
+     * @return \DateTime 
+     */
+    public function getExpiresAt()
+    {
+        return $this->expires_at;
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $createdAt
+     * @return Cv
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get created_at
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updated_at
+     *
+     * @param \DateTime $updatedAt
+     * @return Cv
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updated_at
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set categoryCv
+     *
+     * @param \Ens\CvBundle\Entity\CategoryCv $categoryCv
+     * @return Cv
+     */
+    public function setCategoryCv(\Ens\CvBundle\Entity\CategoryCv $categoryCv = null)
     {
         $this->categoryCv = $categoryCv;
 
         return $this;
     }
 
-
+    /**
+     * Get categoryCv
+     *
+     * @return \Ens\CvBundle\Entity\CategoryCv 
+     */
     public function getCategoryCv()
     {
         return $this->categoryCv;
     }
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        if(!$this->getCreatedAt())
+          {
+            $this->created_at = new \DateTime();
+          }
+    }
 
+    /**
+     * @ORM\PreUpdate
+     */
+
+        public function setUpdatedAtValue()
+        {
+          $this->updated_at = new \DateTime();
+        }
+
+
+
+
+    /**
+     * Set formDescription1
+     *
+     * @param string $formDescription1
+     * @return Cv
+     */
+    public function setFormDescription1($formDescription1)
+    {
+        $this->formDescription1 = $formDescription1;
+
+        return $this;
+    }
+
+    /**
+     * Get formDescription1
+     *
+     * @return string 
+     */
+    public function getFormDescription1()
+    {
+        return $this->formDescription1;
+    }
+
+    /**
+     * Set formDescription2
+     *
+     * @param string $formDescription2
+     * @return Cv
+     */
+    public function setFormDescription2($formDescription2)
+    {
+        $this->formDescription2 = $formDescription2;
+
+        return $this;
+    }
+
+    /**
+     * Get formDescription2
+     *
+     * @return string 
+     */
+    public function getFormDescription2()
+    {
+        return $this->formDescription2;
+    }
+
+    /**
+     * Set formDescription3
+     *
+     * @param string $formDescription3
+     * @return Cv
+     */
+    public function setFormDescription3($formDescription3)
+    {
+        $this->formDescription3 = $formDescription3;
+
+        return $this;
+    }
+
+    /**
+     * Get formDescription3
+     *
+     * @return string 
+     */
+    public function getFormDescription3()
+    {
+        return $this->formDescription3;
+    }
+
+//slugify pour changer l'url dans la barre pour chaque offre.
+
+
+    public function getPrenomSlug()
+    {
+        return GoodCv::slugify($this->getPrenom());
+    }
+ 
+
+
+    public function getNomSlug()
+    {
+        return GoodCv::slugify($this->getNom());
+    }
+ 
+
+
+    public function getPostRechercheSlug()
+    {
+        return GoodCv::slugify($this->getPostRecherche());
+    }
+
+
+
+
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setExpiresAtValue()
+    {
+      if(!$this->getExpiresAt())
+      {
+        $now = $this->getCreatedAt() ? $this->getCreatedAt()->format('U') : time();
+        $this->expires_at = new \DateTime(date('Y-m-d H:i:s', $now + 86400 * 30));
+      }
+    }
 }

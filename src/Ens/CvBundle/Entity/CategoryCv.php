@@ -24,6 +24,9 @@ class CategoryCv
      */
     private $cvs;
 
+
+    private $active_cvs;
+
     /**
      * Constructor
      */
@@ -116,4 +119,62 @@ class CategoryCv
     {
       return $this->getName();
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category_affiliatesCv;
+
+
+    /**
+     * Add category_affiliatesCv
+     *
+     * @param \Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliatesCv
+     * @return CategoryCv
+     */
+    public function addCategoryAffiliatesCv(\Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliatesCv)
+    {
+        $this->category_affiliatesCv[] = $categoryAffiliatesCv;
+
+        return $this;
+    }
+
+    /**
+     * Remove category_affiliatesCv
+     *
+     * @param \Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliatesCv
+     */
+    public function removeCategoryAffiliatesCv(\Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliatesCv)
+    {
+        $this->category_affiliatesCv->removeElement($categoryAffiliatesCv);
+    }
+
+    /**
+     * Get category_affiliatesCv
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategoryAffiliatesCv()
+    {
+        return $this->category_affiliatesCv;
+    }
+
+
+
+
+
+ 
+
+ 
+      public function setActiveCvs($cvs)
+      {
+        $this->active_cvs = $cvs;
+      }
+     
+      public function getActiveCvs()
+      {
+        return $this->active_cvs;
+      }
+
+
+
 }

@@ -16,8 +16,6 @@ function initialiser() {
 
 
 
-
-
                // création du marqueur 
                // sa ne marche pas 
                 // var marqueur = new google.maps.Marker({

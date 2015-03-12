@@ -1,4 +1,4 @@
-Ens\CvBundle\Entity\CategoryCvAffiliate:
+Ens\CvBundle\Entity\CategoryAffiliateCv:
   type: entity
   table: category_affiliateCv
   id:
@@ -10,11 +10,11 @@ Ens\CvBundle\Entity\CategoryCvAffiliate:
       targetEntity: CategoryCv
       inversedBy: category_affiliatesCv
       joinColumn:
-        name: category_id
+        name: categoryCv_id
         referencedColumnName: id
-    AffiliateCv:
+    affiliateCv:
       targetEntity: AffiliateCv
       inversedBy: category_affiliatesCv
       joinColumn:
-        name: affiliate_id
+        name: affiliateCv_id
         referencedColumnName: id

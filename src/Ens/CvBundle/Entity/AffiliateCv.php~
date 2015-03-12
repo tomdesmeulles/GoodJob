@@ -29,23 +29,6 @@ class AffiliateCv
      */
     private $token;
 
-    /**
-     * @var \DateTime
-     */
-    private $created_at;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $category_affiliates;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->category_affiliates = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -125,6 +108,23 @@ class AffiliateCv
     {
         return $this->token;
     }
+    /**
+     * @var \DateTime
+     */
+    private $created_at;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category_affiliates;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->category_affiliates = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Set created_at
@@ -152,10 +152,10 @@ class AffiliateCv
     /**
      * Add category_affiliates
      *
-     * @param \Ens\CvBundle\Entity\CategoryCvAffiliate $categoryAffiliates
+     * @param \Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliates
      * @return AffiliateCv
      */
-    public function addCategoryAffiliate(\Ens\CvBundle\Entity\CategoryCvAffiliate $categoryAffiliates)
+    public function addCategoryAffiliate(\Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliates)
     {
         $this->category_affiliates[] = $categoryAffiliates;
 
@@ -165,9 +165,9 @@ class AffiliateCv
     /**
      * Remove category_affiliates
      *
-     * @param \Ens\CvBundle\Entity\CategoryCvAffiliate $categoryAffiliates
+     * @param \Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliates
      */
-    public function removeCategoryAffiliate(\Ens\CvBundle\Entity\CategoryCvAffiliate $categoryAffiliates)
+    public function removeCategoryAffiliate(\Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliates)
     {
         $this->category_affiliates->removeElement($categoryAffiliates);
     }
@@ -186,6 +186,9 @@ class AffiliateCv
      */
     public function setCreatedAtValue()
     {
-        // Add your code here
+       if(!$this->getCreatedAt())
+      {
+        $this->created_at = new \DateTime();
+      }
     }
 }

@@ -1,5 +1,6 @@
 Ens\CvBundle\Entity\CategoryCv:
   type: entity
+  repositoryClass: Ens\CvBundle\Repository\CategoryCvRepository
   table: categoryCv
   id:
     id:
@@ -13,4 +14,7 @@ Ens\CvBundle\Entity\CategoryCv:
   oneToMany:
     cvs:
       targetEntity: Cv
+      mappedBy: categoryCv
+    category_affiliatesCv:
+      targetEntity: CategoryAffiliateCv
       mappedBy: categoryCv

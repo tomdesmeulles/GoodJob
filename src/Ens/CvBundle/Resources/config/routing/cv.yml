@@ -1,3 +1,35 @@
-EnsCvBundle_homepage:
-    path:  /
-    defaults: { _controller: EnsCvBundle:Cv:index }
+ens_cv:
+    pattern:  /
+    defaults: { _controller: "EnsCvBundle:Cv:index" }
+
+ens_cv_show:
+    pattern:  /{id}/{prenom}/{nom}/{postRecherche}
+    defaults: { _controller: "EnsCvBundle:Cv:show" }
+
+# ens_cv_show:
+#     pattern:  /{id}/show
+#     defaults: { _controller: "EnsCvBundle:Cv:show" }
+
+
+ens_cv_new:
+    pattern:  /new
+    defaults: { _controller: "EnsCvBundle:Cv:new" }
+
+ens_cv_create:
+    pattern:  /create
+    defaults: { _controller: "EnsCvBundle:Cv:create" }
+    requirements: { _method: post }
+
+ens_cv_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EnsCvBundle:Cv:edit" }
+
+ens_cv_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EnsCvBundle:Cv:update" }
+    requirements: { _method: post }
+
+ens_cv_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EnsCvBundle:Cv:delete" }
+    requirements: { _method: post }

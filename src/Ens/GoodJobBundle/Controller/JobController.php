@@ -4,13 +4,17 @@ namespace Ens\GoodJobBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
 
 use Ens\GoodJobBundle\Entity\Job;
 use Ens\GoodJobBundle\Form\JobType;
 use Ens\GoodJobBundle\GMap\GeocodeMap;
+
+
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
  * Job controller.
@@ -20,25 +24,8 @@ class JobController extends Controller
 {
 
 
-
-    // public function indexAction()
-    // {
-    //     $em = $this->getDoctrine()->getManager();
-        
-    //     $categories = $em->getRepository('EnsGoodJobBundle:Category')->getWithJobs();
-        
-    //     foreach($categories as $category)
-    //     {
-    //         $category->setActiveJobs($em->getRepository('EnsGoodJobBundle:Job')->getActiveJobs($category->getId(), $this->container->getParameter('max_jobs_on_homepage')));
-    //         $category->setMoreJobs($em->getRepository('EnsGoodJobBundle:Job')->countActiveJobs($category->getId()), $this->container->getParameter('max_jobs_on_homepage'));
-    //     }
-    //     $map = $this->get('ivory_google_map.map');
-
-    //     return $this->render('EnsGoodJobBundle:Job:index.html.twig', array(
-    //         'categories' => $categories,
-    //         'map' => $map
-    //     ));
-    // }
+    
+ 
     
 
     public function indexAction()
@@ -59,17 +46,25 @@ class JobController extends Controller
     }
 
 
-    // public function jsonAction(){
-    //     $jobs = $this->get('doctrine')
-    //                    ->getRepository('EnsGoodJobBundle:Job')
-    //                    ->findAll();
+    public function jsonAction(){
+        $jobs = $this->get('doctrine')
+                       ->getRepository('EnsGoodJobBundle:Job')
+                       ->findAll();
 
-    //     $serializer = new Serializer(array(new GetSetMethodNormalizer()), array('json' => new 
-    //     JsonEncoder()));
-    //     $json = $serializer->serialize($jobs, 'json');
+        $encoder = new JsonEncoder();
+        $normalizer = new GetSetMethodNormalizer();
+        $normalizer->setIgnoredAttributes(array("category"));
+        $serializer = new Serializer(array($normalizer), array($encoder));
 
-    //     return new Response($json);
-    // }
+        $jsonJob = $serializer->serialize($jobs, 'json');
+        
+      
+       // $json = $serializer->serialize($jobs[1] , 'json');
+        $response = new JsonResponse();
+        $response->setData(array('jobs'=>$jsonJob)); 
+        return  $response;
+
+    }
 
 
 

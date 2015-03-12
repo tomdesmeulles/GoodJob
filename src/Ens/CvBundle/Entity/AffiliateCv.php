@@ -108,4 +108,87 @@ class AffiliateCv
     {
         return $this->token;
     }
+    /**
+     * @var \DateTime
+     */
+    private $created_at;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category_affiliates;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->category_affiliates = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $createdAt
+     * @return AffiliateCv
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get created_at
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Add category_affiliates
+     *
+     * @param \Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliates
+     * @return AffiliateCv
+     */
+    public function addCategoryAffiliate(\Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliates)
+    {
+        $this->category_affiliates[] = $categoryAffiliates;
+
+        return $this;
+    }
+
+    /**
+     * Remove category_affiliates
+     *
+     * @param \Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliates
+     */
+    public function removeCategoryAffiliate(\Ens\CvBundle\Entity\CategoryAffiliateCv $categoryAffiliates)
+    {
+        $this->category_affiliates->removeElement($categoryAffiliates);
+    }
+
+    /**
+     * Get category_affiliates
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategoryAffiliates()
+    {
+        return $this->category_affiliates;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+       if(!$this->getCreatedAt())
+      {
+        $this->created_at = new \DateTime();
+      }
+    }
 }

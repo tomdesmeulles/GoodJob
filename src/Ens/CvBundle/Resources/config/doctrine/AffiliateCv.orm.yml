@@ -16,3 +16,11 @@ Ens\CvBundle\Entity\AffiliateCv:
     token:
       type: string
       length: 255
+    created_at:
+      type: datetime
+  oneToMany:
+    category_affiliates:
+      targetEntity: CategoryAffiliateCv
+      mappedBy: affiliateCv
+  lifecycleCallbacks:
+    prePersist: [ setCreatedAtValue ]

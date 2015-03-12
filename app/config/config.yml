@@ -5,7 +5,8 @@ imports:
 
 parameters:
     max_jobs_on_homepage: "10"
-    max_jobs_on_category: "20"
+    max_cvs_on_indexpage: "10"
+    max_jobs_on_category: "10"
 
 framework:
     #esi:             ~
@@ -108,12 +109,12 @@ hwi_oauth:
         type: google
         client_id: %oauth.google.id%
         client_secret: %oauth.google.secret%
-        scope: "https://www.googleapis.com/auth/userinfo.email"
+        scope: email
     linkedin:
         type: linkedin
         client_id: %oauth.linkedin.id%
         client_secret: %oauth.linkedin.secret%
-        scope: "email"
+       # scope: email
 
 services:
     object_normalizer:

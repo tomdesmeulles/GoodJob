@@ -17,6 +17,7 @@
 
             {% block stylesheets %}
                 <link rel="stylesheet" href="{{ asset('bundles/ensgoodjob/css/main.css') }}" type="text/css" media="all" />
+                <link rel="stylesheet" href="{{ asset('bundles/enuser/css/mainUser.css') }}" type="text/css" media="all" />
             {% endblock %}
 
 
@@ -30,10 +31,11 @@
                 </script>
 
 
-        <!-- Inclusion de l'API Google MAPS -->
-        <!-- Le paramètre "sensor" indique si cette application utilise détecteur pour déterminer la position de l'utilisateur -->
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-        <script type="text/javascript" src="{{ asset('bundles/ensgoodjob/js/Gmap.js') }}"> </script>
+                <!-- Inclusion de l'API Google MAPS -->
+                <!-- Le paramètre "sensor" indique si cette application utilise détecteur pour déterminer la position de l'utilisateur -->
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+                <script type="text/javascript" src="{{ asset('bundles/ensgoodjob/js/Gmap.js') }}"> </script>
 
             {% endblock %}
         </head>
@@ -68,7 +70,7 @@
                             </a>
                         </li>
                         <li class="li-menuHeader">
-                            <a href="{{ path('EnsGoodJobBundle_homepage') }}" class="menu-header">
+                            <a href="{{ path('EnsCvBundle_accueil') }}" class="menu-header">
                                 
                                      Rechercher un Candidat
                                
@@ -85,6 +87,14 @@
                        <div id="carte" style="width:100%; height:400px;"></div>
                         <div class="connectHeader">
                             <ul id="menu_horizontal2">
+                                <li>
+                                    <div class="search">
+                                        <form action="" method="get">
+                                            <input type="text" name="keywords" id="search_keywords" id="srchval" onclick="clearf()" placeholder="ville, pays, poste, ..."/>
+                                            <input type="submit" value="rechercher" classe="submitR" />
+                                        </form>
+                                    </div>
+                                </li>
                                 <li class="li-connectHead">
                                             offres d'emploi pour les geeks
                                 </li>
@@ -98,7 +108,7 @@
                             </ul>
                         </div>
                         
-                        <div id="sub_header">
+                       <!--  <div id="sub_header">
 
                             <div class="search">
                                 <form action="" method="get">
@@ -106,7 +116,7 @@
                                     <input type="submit" value="rechercher" classe="submitR" />
                                 </form>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
