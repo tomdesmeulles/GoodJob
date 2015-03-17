@@ -11,6 +11,10 @@ Ens\CvBundle\Entity\CategoryCv:
       type: string
       length: 255
       unique: true
+    slug:
+      type: string
+      length: 255
+      unique: true
   oneToMany:
     cvs:
       targetEntity: Cv
@@ -18,3 +22,6 @@ Ens\CvBundle\Entity\CategoryCv:
     category_affiliatesCv:
       targetEntity: CategoryAffiliateCv
       mappedBy: categoryCv
+  lifecycleCallbacks:
+    prePersist: [ setSlugValue ]
+    preUpdate: [ setSlugValue ]

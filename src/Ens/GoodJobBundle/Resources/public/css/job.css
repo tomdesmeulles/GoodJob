@@ -51,6 +51,12 @@
   margin-right: 10px;
   padding: 5px;
   background: #fff;
+  max-width: 150px;
+}
+
+
+.ImgJoblogo{
+  max-width: 150px;
 }
 
 #job_actions

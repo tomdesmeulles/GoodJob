@@ -89,8 +89,8 @@
                             <ul id="menu_horizontal2">
                                 <li>
                                     <div class="search">
-                                        <form action="" method="get">
-                                            <input type="text" name="keywords" id="search_keywords" id="srchval" onclick="clearf()" placeholder="ville, pays, poste, ..."/>
+                                        <form action="{{ path('ens_job_search') }}" method="get">
+                                            <input type="text" name="query" id="search_keywords" id="srchval" onclick="clearf()" placeholder="ville, pays, poste, ..." value='{{ app.request.get('query') }}'/>
                                             <input type="submit" value="rechercher" classe="submitR" />
                                         </form>
                                     </div>
@@ -98,13 +98,13 @@
                                 <li class="li-connectHead">
                                             offres d'emploi pour les geeks
                                 </li>
-                                <li class="li-connectHead">
-                                    <a href="{{ path('login') }}" class="">
+<!--                                 <li class="li-connectHead">
+                                    <a href="" class="">
                                         
                                            Connexion
                                        
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                         
@@ -150,7 +150,7 @@
                     <div class="content">
 
                         <ul>
-                            <li><a href="">Mention legales </a></li>
+                            <li><a href="{{ path('login') }}">Administration du site</a></li>
                             <li class=""><a href="">Mention legales</a></li>
                             <li><a href="">Mention legales</a></li>
                             <li class=""><a href="">Mention legales</a></li>

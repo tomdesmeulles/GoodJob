@@ -13,15 +13,15 @@ class JobType extends AbstractType
     {
         $builder->add('category', null, array('label' => "secteur d'activité", 'required' => true));
         $builder->add('type', 'choice', array('choices' => Job::getTypes(), 'expanded' => true));
-        $builder->add('company', null, array('label' => 'Entreprise', 'required' => true));
-        $builder->add('file', 'file', array('label' => 'Logo', 'required' => false));
-        $builder->add('url', null, array('label' => 'Site Web', 'required' => false));
-        $builder->add('position', null, array('label' => 'Poste', 'required' => true));
-        $builder->add('location', null, array('label' => 'Ville', 'required' => true));
-        $builder->add('description', null, array('label' => "Description de l'offre", 'required' => true));
-        $builder->add('how_to_apply', null, array('label' => 'Contact RH'));
+        $builder->add('company', null, array('label' => 'Entreprise :', 'required' => true));
+        $builder->add('file', 'file', array('label' => 'Logo :', 'required' => false));
+        $builder->add('url', null, array('label' => 'Site Web :', 'required' => true));
+        $builder->add('position', null, array('label' => 'Poste :', 'required' => true));
+        $builder->add('location', null, array('label' => 'Ville :', 'required' => true));
+        $builder->add('description', null, array('label' => "Description de l'offre :", 'required' => true));
+        $builder->add('how_to_apply', null, array('label' => 'Personne à contacter :'));
         $builder->add('is_public', null, array('label' => 'Offre public ?'));
-        $builder->add('email', null,  array('label' => 'Mail et/ou Tel', 'required' => false));
+        $builder->add('email', null,  array('label' => 'Adresse e-mail :', 'required' => true));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

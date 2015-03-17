@@ -1,0 +1,181 @@
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>
+                {% block title %}
+                    Good Job - Le partenaire des geeks
+                {% endblock %}
+            </title>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+            <link rel="shortcut icon" href="{{ asset('bundles/ensgoodjob/images/favicon.ico') }}" />
+
+
+<!-- Elément Google Maps indiquant que la carte doit être affiché en plein écran et
+        qu'elle ne peut pas être redimensionnée par l'utilisateur -->
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+            {% block stylesheets %}
+                <link rel="stylesheet" href="{{ asset('bundles/ensgoodjob/css/main.css') }}" type="text/css" media="all" />
+                <link rel="stylesheet" href="{{ asset('bundles/enuser/css/mainUser.css') }}" type="text/css" media="all" />
+            {% endblock %}
+
+ <!-- Inclusion du slide -->
+                <script type="text/javascript" src="{{ asset('bundles/enscv/js/coin-slider.min.js') }}"></script>
+                <link rel="stylesheet" href="{{ asset('bundles/enscv/css/coin-slider-styles.css') }}" type="text/css" />
+
+
+
+            {% block javascripts %}
+                <!-- Champs recherche Page accueil  -->
+                <script langage="text/javascript">
+                    function clearf(){
+                        document.getElementById('srchval').value="";
+                    }
+                </script>
+
+
+                
+
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('#coin-slider').coinslider();
+                    });
+                </script>
+
+            {% endblock %}
+
+        </head>
+        <body>
+            <div id="container">
+                <div class="top-header">
+                    <ul id="menu_horizontal">
+                        <li class="li-menuHeader">
+                            <a href="{{ path('EnsGoodJobBundle_homepage') }}">
+                                <img src="{{ asset('bundles/ensgoodjob/images/logo.jpg') }}" alt="Good Job - Le partenaire des geeks" class="imgLogo" />
+                            </a>
+                        </li>
+                        <li class="li-menuHeader">
+                            <a href="{{ path('ens_job_new') }}" class="menu-header">
+                                
+                                    Déposer une offre
+                              
+                            </a>
+                        </li>
+                        <li class="li-menuHeader">
+                            <a href="{{ path('EnsGoodJobBundle_homepage') }}" class="menu-header">
+                                
+                                     Rechercher une offre
+                              
+                            </a>
+                        </li>
+                        <li class="li-menuHeader">
+                            <a href="{{ path('EnsGoodJobBundle_homepage') }}" class="menu-header">
+                                
+                                    Créer sont CV
+                              
+                            </a>
+                        </li>
+                        <li class="li-menuHeader">
+                            <a href="{{ path('EnsCvBundle_accueil') }}" class="menu-header">
+                                
+                                     Rechercher un Candidat
+                               
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+MOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+                <div id='coin-slider'>
+                    <a href="img01_url" target="_blank">
+                        <img src='{{ asset('bundles/enscv/images/img1.jpg') }}' >
+                        <span>
+                            Description for img01
+                        </span>
+                    </a>
+TIIIIIIIIIIIIIIIIII
+                    <a href="imgN_url">
+                        <img src='{{ asset('bundles/enscv/images/img2.jpg') }}' >
+                        <span>
+                            Description for imgN
+                        </span>
+                    </a>
+                </div>
+
+
+                <div id="header">
+                    <div class="content">
+                        <div class="connectHeader">
+                            <ul id="menu_horizontal2">
+                                <li>
+                                    <div class="search">
+                                        <form action="{{ path('ens_job_search') }}" method="get">
+                                            <input type="text" name="query" id="search_keywords" id="srchval" onclick="clearf()" placeholder="ville, pays, poste, ..." value='{{ app.request.get('query') }}'/>
+                                            <input type="submit" value="rechercher" classe="submitR" />
+                                        </form>
+                                    </div>
+                                </li>
+                                <li class="li-connectHead">
+                                            offres d'emploi pour les geeks
+                                </li>
+
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+                <div id="content">
+                    {% for flashMessage in app.session.flashbag.get('notice') %}
+                        <div class="flash_notice">
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}
+                    
+
+                    {% for flashMessage in app.session.flashbag.get('error') %}
+                        <div class="flash_error">
+                            {{ flashMessage }}
+                        </div>
+                    {% endfor %}
+
+                    <div class="content">
+                        {% block content %}
+                        
+                        {% endblock %}
+                    </div>
+
+                </div>
+
+
+                <div id="footer">
+                    <div class="content">
+
+                        <ul>
+                            <li><a href="{{ path('login') }}">Administration du site</a></li>
+                            <li class=""><a href="">Mention legales</a></li>
+                            <li><a href="">Mention legales</a></li>
+                            <li class=""><a href="">Mention legales</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+        </body>
+
+
+               
+        
+    </html>

@@ -85,6 +85,8 @@ class JobController extends Controller
                 'position' => $entity->getPositionSlug()
                 )));
         }
+
+
         return $this->render('EnsGoodJobBundle:Job:new.html.twig', array(
             'entity' => $entity,
             'form' => $form->createView()
@@ -127,12 +129,12 @@ class JobController extends Controller
     }
 
     /**
-     * Finds and displays a Job entity.
+     * Cherche et affiche une entité Job
      *
      */
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getEntityManager();
 
         $entity = $em->getRepository('EnsGoodJobBundle:Job')->find($id);
 
@@ -311,20 +313,11 @@ class JobController extends Controller
         $editForm = $this->createForm(new JobType(), $entity);
         $deleteForm = $this->createDeleteForm($token);
         $request = $this->getRequest();
-        $editForm->bindRequest($request);
+        $editForm->bind($request);
         if ($editForm->isValid()) {
 
 
-            // dans l'objet entity récup lat et lng 
-            // activer la gestion des deux param. 
-
-            // getlocation 
-
-            //getGeocoderlocation qui retourn lat lng 
-            // persiste l'entité
-
-
-
+        
         $em->persist($entity);
         $em->flush();
          return $this->redirect($this->generateUrl('ens_job_preview', array(
@@ -399,7 +392,7 @@ class JobController extends Controller
       $form = $this->createExtendForm($token);
       $request = $this->getRequest();
      
-      $form->bindRequest($request);
+      $form->bind($request);
      
       if ($form->isValid()) {
         $em = $this->getDoctrine()->getEntityManager();
@@ -433,6 +426,23 @@ class JobController extends Controller
         ->add('token', 'hidden')
         ->getForm()
       ;
+    }
+
+
+
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $query = $this->getRequest()->get('query');
+ 
+        if(!$query) {
+            return $this->redirect($this->generateUrl('ens_job'));
+        }
+
+        $jobs = $em->getRepository('EnsGoodJobBundle:Job')->getForLuceneQuery($query);
+ 
+
+        return $this->render('EnsGoodJobBundle:Job:search.html.twig', array('jobs' => $jobs));
     }
 
 

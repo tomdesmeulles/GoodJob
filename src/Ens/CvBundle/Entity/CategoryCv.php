@@ -4,6 +4,8 @@ namespace Ens\CvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Ens\CvBundle\Utils\GoodCv;
+
 /**
  * CategoryCv
  */
@@ -26,6 +28,10 @@ class CategoryCv
 
 
     private $active_cvs;
+
+    private $slug;
+
+    private $more_cvs;
 
     /**
      * Constructor
@@ -174,6 +180,58 @@ class CategoryCv
       {
         return $this->active_cvs;
       }
+
+
+
+
+
+      public function setMoreCvs($cvs)
+      {
+          $this->more_cvs = $cvs >=  0 ? $cvs : 0;
+      }
+
+      public function getMoreCvs()
+      {
+          return $this->more_cvs;
+      }
+
+
+
+
+
+
+
+
+/**
+ * Set slug
+ *
+ * @param string $slug
+ * @return CategoryCv
+ */
+public function setSlug($slug)
+{
+    $this->slug = $slug;
+
+    return $this;
+}
+
+/**
+ * Get slug
+ *
+ * @return string 
+ */
+public function getSlug()
+{
+   // return $this->slug;
+    return GoodCv::slugify($this->getName());
+}
+
+public function setSlugValue()
+{
+    $this->slug = GoodCv::slugify($this->getName());
+}
+
+
 
 
 

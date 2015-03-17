@@ -187,7 +187,7 @@ class Category
     public function setSlugValue()
     {
         $this->slug = GoodJob::slugify($this->getName());
-        var_dump($this->slug);  
+        
     }
 
     public function setSlug($slug)

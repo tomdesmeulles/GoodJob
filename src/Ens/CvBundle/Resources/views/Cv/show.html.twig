@@ -1,4 +1,4 @@
-{% extends '::layout.html.twig' %}
+{% extends '::layout2.html.twig' %}
  
 {% block stylesheets %}
   {{ parent() }}
@@ -11,6 +11,9 @@
  
  
 {% block content %}
+  
+  {% include 'EnsCvBundle:Cv:list.html.twig' with {'cvs': categoryCv.activecvs} %}
+
     <div id="cv">
       <h1>{{ entity.prenom }}</h1>
       <h2>{{ entity.nom }}</h2>

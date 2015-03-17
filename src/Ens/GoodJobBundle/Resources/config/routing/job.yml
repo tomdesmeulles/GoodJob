@@ -45,3 +45,7 @@ ens_job_extend:
     pattern:  /{token}/extend
     defaults: { _controller: "EnsGoodJobBundle:Job:extend" }
     requirements: { _method: post }
+
+ens_job_search:
+    pattern: /search
+    defaults: { _controller: "EnsGoodJobBundle:Job:search" }

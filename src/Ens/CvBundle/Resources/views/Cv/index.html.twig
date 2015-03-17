@@ -1,4 +1,4 @@
-{% extends '::layout.html.twig' %}
+{% extends '::layout2.html.twig' %}
  
 {% block stylesheets %}
   {{ parent() }}
@@ -6,29 +6,30 @@
 {% endblock %}
 
 {% block content %}
+
     <div id="cvs">
-      <table class="cvs">
+      <!-- <table class="cvs"> -->
         {% for categoryCv in categories %}
           <div>
+           
             <div class="category">
-              <h1>{{ categoryCv.name }}</h1>
+              <h1><a href="{{ path('EnsCvBundle_categoryCv', { 'slug': categoryCv.slug }) }}">{{ categoryCv.name }}</a></h1>
             </div>
-            <table class="jobs">
-              {% for entity in categoryCv.activecvs %}
-                <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
-                  <td class="location">{{ entity.postRecherche }}</td>
-                  <td class="position">
-                    <a href="{{ path('ens_cv_show', { 'id': entity.id, 'prenom': entity.prenomSlug, 'nom': entity.nomSlug, 'postRecherche': entity.postRechercheSlug }) }}">
-                      {{ entity.prenom }}
-                    </a>
-                  </td>
-                  <td class="company">{{ entity.nom }}</td>
-                </tr>
-                {% endfor %}
-              </table>
+
+
+           {% include 'EnsCvBundle:Cv:list.html.twig' with {'cvs': categoryCv.activecvs} %}
+        
+
+          {% if categoryCv.morecvs %}
+            <div class="more_jobs">
+              Total de  <a href="{{ path('EnsCvBundle_categoryCv', { 'slug': categoryCv.slug }) }}">{{ categoryCv.morecvs }}</a>
+              Cvs
             </div>
-        {% endfor %}
-      </table>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+    <!-- </table> -->
     </div>
 {% endblock %}
 

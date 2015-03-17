@@ -4,6 +4,8 @@ namespace Ens\CvBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Ens\CvBundle\Utils\GoodCv;
+
 /**
  * CategoryCv
  */
@@ -23,6 +25,13 @@ class CategoryCv
      * @var \Doctrine\Common\Collections\Collection
      */
     private $cvs;
+
+
+    private $active_cvs;
+
+    private $slug;
+
+    private $more_cvs;
 
     /**
      * Constructor
@@ -154,4 +163,36 @@ class CategoryCv
     {
         return $this->category_affiliatesCv;
     }
+
+
+
+
+
+ 
+
+ 
+      public function setActiveCvs($cvs)
+      {
+        $this->active_cvs = $cvs;
+      }
+     
+      public function getActiveCvs()
+      {
+        return $this->active_cvs;
+      }
+
+
+
+
+
+      public function setMoreCvs($cvs)
+      {
+          $this->more_cvs = $cvs >=  0 ? $cvs : 0;
+      }
+
+      public function getMoreCvs()
+      {
+          return $this->more_cvs;
+      }
+
 }

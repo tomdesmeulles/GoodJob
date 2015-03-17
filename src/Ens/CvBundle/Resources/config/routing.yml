@@ -8,5 +8,9 @@ EnsCvBundle_cv:
 #     defaults: { _controller: EnsCvBundle:Default:index }
 
 EnsCvBundle_accueil:
-    pattern:  /Cv/index
+    pattern:  /Cv/index/
     defaults: { _controller: EnsCvBundle:Cv:index }
+
+EnsCvBundle_categoryCv:
+    pattern:  /categoryCv/{slug}/{page}
+    defaults: { _controller: EnsCvBundle:CategoryCv:show, page:1 }

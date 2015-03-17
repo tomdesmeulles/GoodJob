@@ -4,9 +4,9 @@ imports:
     - { resource: services.yml }
 
 parameters:
-    max_jobs_on_homepage: "10"
-    max_cvs_on_indexpage: "10"
-    max_jobs_on_category: "10"
+    max_jobs_on_homepage: "5"
+    max_cvs_on_indexpage: "5"
+    max_jobs_on_category: "5"
 
 framework:
     #esi:             ~

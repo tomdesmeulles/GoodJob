@@ -1,0 +1,33 @@
+{% extends '::layout2.html.twig' %}
+ 
+{% block title %}
+  Cvs dans cette catégorie {{ categoryCv.name }}
+{% endblock %}
+ 
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('bundles/enscv/css/jobs.css') }}" type="text/css" media="all" />
+{% endblock %}
+ 
+{% block content %}
+  <div class="category">
+    <div class="feed">
+      <a href="">Feed</a>
+    </div>
+    <h1>{{ categoryCv.name }}</h1>
+  </div>
+ 
+  <table class="jobs">
+    {% for entity in categoryCv.activecvs %}
+      <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+        <td class="location">{{ entity.adresse }}</td>
+        <td class="position">
+          <a href="{{ path('ens_cv_show', { 'id': entity.id, 'prenom': entity.prenomSlug, 'nom': entity.nomSlug, 'postRecherche': entity.postRechercheSlug }) }}">
+              {{ entity.prenom }}
+          </a>
+        </td>
+        <td class="company">{{ entity.prenom }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

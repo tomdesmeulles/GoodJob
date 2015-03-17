@@ -1,0 +1,14 @@
+<table class="jobs">
+  {% for entity in cvs %}
+    <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+      <td class="location">{{ entity.postRecherche }}</td>
+      <td class="position">
+        <a href="{{ path('ens_cv_show', { 'id': entity.id, 'prenom': entity.prenomSlug, 'nom': entity.nomSlug, 'postRecherche': entity.postRechercheSlug }) }}">
+                      {{ entity.prenom }}
+                    </a>
+        </a>
+      </td>
+      <td class="company"> {{ entity.prenom }}</td>
+    </tr>
+  {% endfor %}
+</table>

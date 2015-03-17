@@ -24,7 +24,8 @@
         {% if entity.logo %}
             <div class="logo">
                 <a href="{{ entity.url }}">
-                    <img src="/uploads/jobs/{{ entity.logo }}" alt="{{ entity.company }} logo" />
+                  <img src="{{asset(entity.webpath)}}" alt="{{ entity.company }}" class="ImgJoblogo"/>
+
                 </a>
             </div>
         {% endif %}
@@ -36,6 +37,7 @@
         <h4>Comment postuler ?</h4>
 
         <p class="how_to_apply">{{ entity.howtoapply }}</p>
+        <p class="how_to_apply">{{ entity.email }}</p>
         
         <div class="meta">
             <small>postée le  {{ entity.createdat|date('m/d/Y') }}</small>

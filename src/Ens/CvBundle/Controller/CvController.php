@@ -8,25 +8,21 @@ class CvController extends Controller
     
 	public function indexAction()
 	{
-	    // $em = $this->getDoctrine()->getManager();
-	 
-	    // $entities = $em->getRepository('EnsCvBundle:Cv')->findAll();
-	 
-	    // return $this->render('EnsCvBundle:Cv:index.html.twig', array('entities' => $entities));
 
+		$em = $this->getDoctrine()->getEntityManager();
 
-	$em = $this->getDoctrine()->getEntityManager();
-	 
-	  $categories = $em->getRepository('EnsCvBundle:CategoryCv')->getWithCvs();
-	 
-	  foreach($categories as $categoryCv)
-	  {
-	    $categoryCv->setActiveCvs($em->getRepository('EnsCvBundle:Cv')->getActiveCvs($categoryCv->getId(), $this->container->getParameter('max_cvs_on_indexpage')));
-	  }
-	 
-	  return $this->render('EnsCvBundle:Cv:index.html.twig', array(
-	    'categories' => $categories
-	  ));
+		$categories = $em->getRepository('EnsCvBundle:CategoryCv')->getWithCvs();
+
+		foreach($categories as $categoryCv)
+		{
+			$categoryCv->setActiveCvs($em->getRepository('EnsCvBundle:Cv')->getActiveCvs($categoryCv->getId(), $this->container->getParameter('max_cvs_on_indexpage')));
+			$categoryCv->setMoreCvs($em->getRepository('EnsCvBundle:Cv')->countActiveCvs($categoryCv->getId()) - $this->container->getParameter('max_cvs_on_indexpage'));
+		}
+
+		return $this->render('EnsCvBundle:Cv:index.html.twig', array(
+			'categories' => $categories,
+			// 'categoryCv' => $categoryCv
+			));
 	}
 
 
@@ -46,7 +42,7 @@ class CvController extends Controller
 	 
 	    return $this->render('EnsCvBundle:Cv:show.html.twig', array(
 	        'entity'      => $entity,
-	        'delete_form' => $deleteForm->createView(),
+	        'delete_form' => $deleteForm->createView()
 	 
 	    ));
 	}

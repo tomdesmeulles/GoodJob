@@ -25,7 +25,8 @@
         "willdurand/geocoder": "~2.8",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "hwi/oauth-bundle": "0.4.*@dev",
-        "symfony/serializer": "3.0.*@dev"
+        "symfony/serializer": "3.0.*@dev",
+        "zf1/zend-search-lucene": "1.12.7"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
